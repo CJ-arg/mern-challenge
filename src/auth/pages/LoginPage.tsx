@@ -16,9 +16,10 @@ export const LoginPage = () => {
         xs={3}
         sx={{
           width: { sm: 450 },
-          backgroundColor: "white",
-          padding: 3,
-          borderRadius: 2,
+          backgroundColor: "lightblue",
+          padding: 2,
+          borderRadius: 0.8,
+          textAlign: "center",
         }}
       >
         {" "}
