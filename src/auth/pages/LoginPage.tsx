@@ -1,7 +1,29 @@
-import React from 'react'
+import { Grid, Item, Typography } from "@mui/material";
 
 export const LoginPage = () => {
   return (
-    <div>LoginPage</div>
-  )
-}
+    <Grid
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+      sx={{ minHeight: "100vh", backgroundColor: "primary.main", padding: 4 }}
+    >
+      <Grid
+        item
+        className="box-shadow"
+        xs={3}
+        sx={{
+          width: { sm: 450 },
+          backgroundColor: "white",
+          padding: 3,
+          borderRadius: 2,
+        }}
+      >
+        {" "}
+        <Typography variant="h1">Hola</Typography>
+      </Grid>
+    </Grid>
+  );
+};
