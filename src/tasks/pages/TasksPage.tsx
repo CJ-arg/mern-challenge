@@ -1,7 +1,5 @@
-import React from 'react'
+import { Typography } from "@mui/material";
 
 export const TasksPage = () => {
-  return (
-    <div>TasksPage</div>
-  )
-}
+  return <Typography variant="h1">TasksPage</Typography>;
+};
