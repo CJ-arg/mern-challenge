@@ -1,11 +1,9 @@
 import { useState } from "react";
 
-import "./App.css";
-
 function App() {
   return (
     <>
-      <p className="read-the-docs">HELLO WORLD</p>
+      <h1 className="read-the-docs">HELLO WORLD</h1>
     </>
   );
 }
