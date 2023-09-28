@@ -38,7 +38,6 @@ export const LoginPage = () => {
           <Grid container justifyContent="right" sx={{ mb: 3 }}>
             <Grid item xs={12} sm={6}>
               <Button variant="outlined" fullWidth sx={{ mb: 1, mt: 5 }}>
-                {" "}
                 Login
               </Button>
             </Grid>

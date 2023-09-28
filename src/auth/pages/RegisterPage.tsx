@@ -5,7 +5,6 @@ import { AuthLayout } from "../layout/AuthLayout";
 export const RegisterPage = () => {
   return (
     <AuthLayout title="Create Accunt">
-      {" "}
       <form>
         <Grid container>
           <Grid item xs={12} sx={{ mt: 5 }}>
