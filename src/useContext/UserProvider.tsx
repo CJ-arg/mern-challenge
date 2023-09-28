@@ -4,11 +4,6 @@ import { UserContext } from "./UserContext";
 interface UserProviderProps {
   children: ReactNode;
 }
-interface User {
-  id: number;
-  name: string;
-  email: string;
-}
 
 const user = {
   id: 1213,
@@ -18,7 +13,7 @@ const user = {
 
 export const UserProvider = ({ children }: UserProviderProps) => {
   return (
-    <UserContext.Provider value={{ Hola: "Mundo", user }}>
+    <UserContext.Provider value={{ hola: "Mundo", user }}>
       {children}
     </UserContext.Provider>
   );

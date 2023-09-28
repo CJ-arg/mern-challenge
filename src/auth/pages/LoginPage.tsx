@@ -5,12 +5,12 @@ import { useContext } from "react";
 import { UserContext } from "../../useContext/UserContext";
 
 export const LoginPage = () => {
-  const algo = useContext(UserContext);
-  console.log(algo);
+  const { hola, user } = useContext(UserContext);
+  console.log(hola, user, hola);
 
   return (
     <AuthLayout title="Game Tasks">
-      {" "}
+      {hola}
       <form>
         <Grid container>
           <Grid item xs={12} sx={{ mt: 5 }}>
