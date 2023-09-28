@@ -1,11 +1,14 @@
 import { AppRouter } from "./router/AppRouter";
 import { AppTheme } from "./theme/AppTheme";
+import { UserProvider } from "./useContext/UserProvider";
 
 function App() {
   return (
-    <AppTheme>
-      <AppRouter />
-    </AppTheme>
+    <UserProvider>
+      <AppTheme>
+        <AppRouter />
+      </AppTheme>
+    </UserProvider>
   );
 }
 
