@@ -1,8 +1,13 @@
 import { Button, Grid, Link, TextField } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
+import { useContext } from "react";
+import { UserContext } from "../../useContext/UserContext";
 
 export const LoginPage = () => {
+  const algo = useContext(UserContext);
+  console.log(algo);
+
   return (
     <AuthLayout title="Game Tasks">
       {" "}
