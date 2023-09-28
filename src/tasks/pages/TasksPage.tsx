@@ -30,25 +30,31 @@ export const TasksPage = () => {
         className="box-shadow"
         xs={9}
         sx={{
-          height: { sm: 160 },
+          height: { sm: 150 },
           backgroundColor: "orange",
-          padding: 2,
+          padding: 1,
           borderRadius: 5,
           textAlign: "center",
         }}
       >
-        <Typography variant="h4" sx={{ mb: 2, mt: 2 }}>
-          PROYECTOS
+        <Typography
+          variant="h4"
+          sx={{ mb: 3, mt: 1, fontWeight: "bolder", letterSpacing: "2px" }}
+        >
+          PROGRAMA
         </Typography>
-        <Grid container justifyContent="center" gap={3} sx={{ mb: 3 }}>
+        <Grid container justifyContent="center" gap={3} sx={{ mb: 1 }}>
           <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Proyecto</InputLabel>
+              <InputLabel sx={{ color: "black" }} id="demo-simple-select-label">
+                Proyectos
+              </InputLabel>
               <Select
+                sx={{ color: "black" }}
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 value={age}
-                label="Proyecto"
+                label="Proyectos"
                 onChange={handleChange}
               >
                 <MenuItem value={10}>ten</MenuItem>
