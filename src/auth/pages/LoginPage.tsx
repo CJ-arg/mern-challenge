@@ -22,7 +22,18 @@ export const LoginPage = () => {
               type="password"
               placeholder="Password"
               fullWidth
-            ></TextField>
+            >
+              holi
+            </TextField>
+            <Grid container direction="row" justifyContent="right">
+              <Link
+                component={RouterLink}
+                style={{ color: "lightcoral", fontSize: "11px" }}
+                to="/auth/recover"
+              >
+                Forgot your Password
+              </Link>
+            </Grid>
           </Grid>
           <Grid container justifyContent="right" sx={{ mb: 3 }}>
             <Grid item xs={12} sm={6}>
