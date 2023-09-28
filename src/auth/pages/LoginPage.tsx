@@ -28,13 +28,13 @@ export const LoginPage = () => {
             <Grid item xs={12} sm={6}>
               <Button variant="outlined" fullWidth sx={{ mb: 1, mt: 5 }}>
                 {" "}
-                Ingresar
+                Login
               </Button>
             </Grid>
           </Grid>
           <Grid container direction="row" justifyContent="center">
             <Link component={RouterLink} color="inherit" to="/auth/register">
-              No tengo Cuenta
+              Don't have an Account
             </Link>
           </Grid>
         </Grid>

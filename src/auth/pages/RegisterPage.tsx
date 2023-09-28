@@ -4,10 +4,18 @@ import { AuthLayout } from "../layout/AuthLayout";
 
 export const RegisterPage = () => {
   return (
-    <AuthLayout title="Game Tasks">
+    <AuthLayout title="Create Accunt">
       {" "}
       <form>
         <Grid container>
+          <Grid item xs={12} sx={{ mt: 5 }}>
+            <TextField
+              label="Name"
+              type="name"
+              placeholder="Name"
+              fullWidth
+            ></TextField>
+          </Grid>
           <Grid item xs={12} sx={{ mt: 5 }}>
             <TextField
               label="Nick Name"
@@ -28,13 +36,13 @@ export const RegisterPage = () => {
             <Grid item xs={12} sm={6}>
               <Button variant="outlined" fullWidth sx={{ mb: 1, mt: 5 }}>
                 {" "}
-                Ingresar
+                Create Account
               </Button>
             </Grid>
           </Grid>
-          <Grid container direction="row" justifyContent="center">
-            <Link component={RouterLink} color="inherit" to="/auth/register">
-              No tengo Cuenta
+          <Grid container direction="row" justifyContent="right">
+            <Link component={RouterLink} color="inherit" to="/auth/login">
+              Have an Account? Login
             </Link>
           </Grid>
         </Grid>
