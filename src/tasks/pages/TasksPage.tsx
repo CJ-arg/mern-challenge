@@ -77,24 +77,6 @@ export const TasksPage = () => {
             </Button>
           </Grid>
         </Grid>
-        <Grid item xs={1}>
-          <Button
-            variant="outlined"
-            color="inherit"
-            fullWidth
-            sx={{ mt: 0, minWidth: 50, minHeight: 55 }}
-            onClick={() =>
-              setCurrentUser({
-                id: 1213,
-                name: "Carlos HardCode",
-                email: "hardcode@gmail.com",
-              })
-            }
-          >
-            SET USER
-          </Button>
-        </Grid>
-        <p> {JSON.stringify(user, null, 4)}</p>
       </Grid>
     </Grid>
   );
