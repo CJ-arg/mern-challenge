@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   Box,
   Button,
@@ -9,9 +9,11 @@ import {
   Typography,
 } from "@mui/material";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { UserContext } from "../../useContext/UserContext";
 
 export const TasksPage = () => {
   const [age, setAge] = useState("");
+  const { user, setCurrentUser } = useContext(UserContext);
 
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string);
@@ -75,6 +77,24 @@ export const TasksPage = () => {
             </Button>
           </Grid>
         </Grid>
+        <Grid item xs={1}>
+          <Button
+            variant="outlined"
+            color="inherit"
+            fullWidth
+            sx={{ mt: 0, minWidth: 50, minHeight: 55 }}
+            onClick={() =>
+              setCurrentUser({
+                id: 1213,
+                name: "Carlos HardCode",
+                email: "hardcode@gmail.com",
+              })
+            }
+          >
+            SET USER
+          </Button>
+        </Grid>
+        <p> {JSON.stringify(user, null, 4)}</p>
       </Grid>
     </Grid>
   );
