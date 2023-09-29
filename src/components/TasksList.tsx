@@ -14,12 +14,11 @@ export const TasksList = () => {
   return (
     <Grid
       container
-      xs={11}
-      gap={2}
+      spacing={2}
+      gap={3}
       direction="row"
-      alignItems="flex-satrt"
       justifyContent="center"
-      sx={{ minHeight: "70vh", padding: 2 }}
+      sx={{ minHeight: "60vh", padding: 2 }}
     >
       <TaskCard title="BORRADOR" />
       <TaskCard title="TRABAJO EN CURSO" />

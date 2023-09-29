@@ -20,12 +20,12 @@ export const Title = () => {
     <Grid
       item
       className="box-shadow"
-      xs={9}
+      xs={10}
       sx={{
         height: { sm: 150 },
-        backgroundColor: "#54A8C3",
+        backgroundColor: "primary.main",
         padding: 1,
-        borderRadius: 5,
+        borderRadius: 1,
         textAlign: "center",
       }}
     >
@@ -42,7 +42,6 @@ export const Title = () => {
               Proyectos
             </InputLabel>
             <Select
-              sx={{ color: "black" }}
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={age}
@@ -61,7 +60,7 @@ export const Title = () => {
             variant="outlined"
             color="inherit"
             fullWidth
-            sx={{ mt: 0, minWidth: 50, minHeight: 55 }}
+            sx={{ mt: 0, minWidth: 50, borderRadius: 1, minHeight: 55 }}
           >
             OK
           </Button>

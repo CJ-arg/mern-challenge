@@ -20,17 +20,20 @@ function TaskCard({ title }) {
     <Grid
       item
       className="box-shadow"
-      xs={4}
+      xs={10}
+      sm={8}
+      md={6}
+      lg={3}
       sx={{
         maxHeight: { sm: 580 },
-        maxWidth: { sm: 350 },
-        backgroundColor: "#D8DBD1",
+        minWidth: { sm: 350 },
+        backgroundColor: "#FBFBFB",
         padding: 1,
-        borderRadius: 5,
+        borderRadius: 0.5,
         textAlign: "center",
       }}
     >
-      <Typography variant="h5" sx={{ mb: 2, mt: 1 }}>
+      <Typography variant="h5" sx={{ mb: 2, mt: 0 }}>
         {title}
       </Typography>
       <Grid container justifyContent="center" gap={3} sx={{ mb: 1 }}>
