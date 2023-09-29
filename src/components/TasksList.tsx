@@ -8,17 +8,19 @@ import {
   MenuItem,
   Typography,
 } from "@mui/material";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
 import TaskCard from "./TaskCard";
 
 export const TasksList = () => {
-  const [age, setAge] = useState("");
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
-  };
   return (
-    <Grid container xs={11} gap={2}>
+    <Grid
+      container
+      xs={11}
+      gap={2}
+      direction="row"
+      alignItems="flex-satrt"
+      justifyContent="center"
+      sx={{ minHeight: "70vh", padding: 2 }}
+    >
       <TaskCard title="BORRADOR" />
       <TaskCard title="TRABAJO EN CURSO" />
       <TaskCard title="LISTO" />
