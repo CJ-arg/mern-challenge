@@ -25,3 +25,17 @@ If you are developing a production application, we recommend updating the config
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+Script to run BACKEND
+$ npm run back
+
+> mern-challenge@0.0.0 back
+> nodemon api/index.js
+
+[nodemon] 3.0.1
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): _._
+[nodemon] watching extensions: js,mjs,cjs,json
+[nodemon] starting `node api/index.js`
+hola mundo
+[nodemon] clean exit - waiting for changes before restart
