@@ -6,18 +6,17 @@ import { UserContext } from "../../useContext/UserContext";
 
 export const LoginPage = () => {
   const { hola, user } = useContext(UserContext);
-  console.log(hola, user, hola);
+  console.log("hola", user, hola);
 
   return (
     <AuthLayout title="Game Tasks">
-      {hola}
       <form>
         <Grid container>
           <Grid item xs={12} sx={{ mt: 5 }}>
             <TextField
               label="Nick Name"
               type="name"
-              placeholder="Nick Name"
+              placeholder={user.name}
               fullWidth
             ></TextField>
           </Grid>
