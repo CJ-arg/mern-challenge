@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
-export const TasksList = () => {
+export const Title = () => {
   const [age, setAge] = useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -20,10 +20,9 @@ export const TasksList = () => {
     <Grid
       item
       className="box-shadow"
-      xs={4}
+      xs={9}
       sx={{
-        height: { sm: 350 },
-        width: { sm: 150 },
+        height: { sm: 150 },
         backgroundColor: "orange",
         padding: 1,
         borderRadius: 5,
@@ -34,7 +33,7 @@ export const TasksList = () => {
         variant="h4"
         sx={{ mb: 3, mt: 1, fontWeight: "bolder", letterSpacing: "2px" }}
       >
-        BORRADOR
+        PROGRAMA
       </Typography>
       <Grid container justifyContent="center" gap={3} sx={{ mb: 1 }}>
         <Box sx={{ minWidth: 120 }}>
