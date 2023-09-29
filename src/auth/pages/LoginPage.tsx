@@ -23,7 +23,7 @@ export const LoginPage = () => {
             <TextField
               label="Password"
               type="password"
-              placeholder="Password"
+              placeholder={user?.name}
               fullWidth
             >
               holi
