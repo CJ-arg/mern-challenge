@@ -7,8 +7,8 @@ const app = express();
 app.use(express.static("../"));
 
 // lectura parse BODY
+app.use(express.text())
 app.use(express.json())
-
 // Rutes
 app.use('/api/auth', require('./routes/auth.cjs' ))
 
