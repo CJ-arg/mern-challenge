@@ -1,7 +1,9 @@
- const express = require('express');
+ const {response} = require('express');
 
-const createUser = (req, res = express.response) => {
-  res.json({ ok: true , msg: 'register' });
+const createUser = (req, res =  response) => {
+console.log(req.body);
+
+  res.json({ ok: true , msg: 'register', user:req.body });
 }
 
 const loginUser = (req, res) => {
