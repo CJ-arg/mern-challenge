@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.static("../"));
 
-app.use('/api/auth', require('./routes/auth' ))
+app.use('/api/auth', require('./routes/auth.cjs' ))
 
 
 app.listen(process.env.PORT, () => {
