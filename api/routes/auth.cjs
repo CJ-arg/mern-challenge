@@ -2,15 +2,11 @@
 // http://localhost:4000 + /api/auth
 
 const {Router} = require('express');
-const { createUser } = require('../controllers/auth.cjs');
+const { createUser, loginUser , renewToken} = require('../controllers/auth.cjs');
 const router = Router()
 
 router.post("/new", createUser)
-router.post("/", (req, res) => {
-  res.json({ ok: true , msg: 'login'});
-});
-router.post("/renew", (req, res) => {
-  res.json({ ok: true, msg: 'renew' });
-});
+router.post("/", loginUser);
+router.post("/renew", renewToken);
 
 module.exports = router 
