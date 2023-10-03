@@ -9,6 +9,4 @@ const dbConnection = async () => {
     throw new Error("Error al inicializar la base de Datos");
   }
 };
-module.exports = {
-  dbConnection,
-};
+export { dbConnection };
