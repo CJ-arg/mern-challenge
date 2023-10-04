@@ -5,18 +5,18 @@ import User from "../models/User.js";
 const createUser = async (req, res = response) => {
   const { name, email, password } = req.body;
   try {
-    let user = new User(req.body);
-    let newUser = await User.findOne({ email });
-    //encriptado
-    const salt = bcrypt.genSaltSync();
-    user.password = bcrypt.hashSync(password, salt);
-
-    if (newUser) {
+    let user = await User.findOne({ email });
+    if (user) {
       return res.status(400).json({
         ok: false,
         msg: "User already exists",
       });
     }
+    user = new User(req.body);
+    //encriptado password
+    const salt = bcrypt.genSaltSync();
+    user.password = bcrypt.hashSync(password, salt);
+
     await user.save();
 
     if (name.length < 3) {
@@ -32,9 +32,31 @@ const createUser = async (req, res = response) => {
   }
 };
 
-const loginUser = (req, res = response) => {
+const loginUser = async (req, res = response) => {
   const { email, password } = req.body;
-  res.json({ ok: true, msg: "login", name, password });
+  try {
+    const user = await User.findOne({ email });
+    console.log(user);
+
+    if (!user) {
+      return res.status(400).json({
+        ok: false,
+        msg: "User mail doesen`t  exists",
+      });
+    }
+    const validPassword = bcrypt.compareSync(password, user.password);
+    if (!validPassword) {
+      return res.status(400).json({
+        ok: false,
+        msg: "Invalid Password",
+      });
+    }
+  } catch (error) {
+    res
+      .status(500)
+      .json({ ok: false, msg: "Error please contact administrator" });
+  }
+  res.json({ ok: true, uid: User.id, name: name });
 };
 
 const renewToken = (req, res = response) => {
