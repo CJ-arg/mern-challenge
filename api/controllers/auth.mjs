@@ -5,7 +5,14 @@ const createUser = async (req, res = response) => {
   const { name, email, password } = req.body;
   try {
     const user = new User(req.body);
+    let newUser = await User.findOne({ email });
 
+    if (newUser) {
+      return res.status(400).json({
+        ok: false,
+        msg: "User already exists",
+      });
+    }
     await user.save();
 
     if (name.length < 3) {
