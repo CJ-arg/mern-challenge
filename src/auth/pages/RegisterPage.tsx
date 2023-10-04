@@ -8,7 +8,7 @@ export const RegisterPage = () => {
   const { user, setCurrentUser } = useContext(UserContext);
   return (
     <>
-      <AuthLayout title="Create Accunt">
+      <AuthLayout title="Create Account">
         <form>
           <Grid container>
             <Grid item xs={12} sx={{ mt: 5 }}>
