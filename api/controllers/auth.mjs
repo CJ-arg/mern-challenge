@@ -1,13 +1,18 @@
 import { response } from "express";
+import User from "../models/User.js";
 
-const createUser = (req, res = response) => {
+const createUser = async (req, res = response) => {
   const { name, email, password } = req.body;
+  const user = new User(req.body);
+
+  await user.save();
+
   if (name.length < 3) {
     return res
       .status(400)
       .json({ ok: false, msg: "Name must be al least 3 characters" });
   }
-  res.json({ ok: true, msg: "register", name, email, password });
+  res.status(201).json({ ok: true, msg: "register", name, email, password });
 };
 
 const loginUser = (req, res = response) => {
