@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-new Schema({
+const userSchema = new Schema({
   name: {
     type: String,
     require: true,
@@ -13,4 +13,10 @@ new Schema({
     type: String,
     require: true,
   },
+{
+timestamps:true,
+versionKey:false
+}
+
 });
+export default model ('User' , userSchema)
