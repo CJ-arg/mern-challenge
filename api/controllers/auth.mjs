@@ -1,11 +1,15 @@
 import { response } from "express";
+import bcrypt from "bcryptjs";
 import User from "../models/User.js";
 
 const createUser = async (req, res = response) => {
   const { name, email, password } = req.body;
   try {
-    const user = new User(req.body);
+    let user = new User(req.body);
     let newUser = await User.findOne({ email });
+    //encriptado
+    const salt = bcrypt.genSaltSync();
+    user.password = bcrypt.hashSync(password, salt);
 
     if (newUser) {
       return res.status(400).json({
@@ -20,7 +24,7 @@ const createUser = async (req, res = response) => {
         .status(400)
         .json({ ok: false, msg: "Name must be al least 3 characters" });
     }
-    res.status(201).json({ ok: true, msg: "register", name, email, password });
+    res.status(201).json({ ok: true, uid: user.id, name: name });
   } catch (error) {
     res
       .status(500)
@@ -30,7 +34,7 @@ const createUser = async (req, res = response) => {
 
 const loginUser = (req, res = response) => {
   const { email, password } = req.body;
-  res.json({ ok: true, msg: "login", email, password });
+  res.json({ ok: true, msg: "login", name, password });
 };
 
 const renewToken = (req, res = response) => {
