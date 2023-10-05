@@ -4,10 +4,11 @@ import authRoutes from "./routes/auth.mjs";
 import dotenv from "dotenv";
 import cors from "cors";
 dotenv.config();
-const app = express();
-dbConnection();
-//
 
+const app = express();
+//data base
+dbConnection();
+//cors
 app.use(cors());
 // public directory
 app.use(express.static("../"));
