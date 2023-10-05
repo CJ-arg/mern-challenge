@@ -1,6 +1,7 @@
 import { response } from "express";
 import bcrypt from "bcryptjs";
 import User from "../models/User.js";
+import { generateJwt } from "../helpers/jwt.mjs";
 
 const createUser = async (req, res = response) => {
   const { name, email, password } = req.body;
@@ -18,13 +19,13 @@ const createUser = async (req, res = response) => {
     user.password = bcrypt.hashSync(password, salt);
 
     await user.save();
-
+    const token = generateJwt(user.id, user.name);
     if (name.length < 3) {
       return res
         .status(400)
         .json({ ok: false, msg: "Name must be al least 3 characters" });
     }
-    res.status(201).json({ ok: true, uid: user.id, name: name });
+    res.status(201).json({ ok: true, uid: user.id, name: name, token });
   } catch (error) {
     res
       .status(500)
@@ -56,7 +57,9 @@ const loginUser = async (req, res = response) => {
       .status(500)
       .json({ ok: false, msg: "Error please contact administrator" });
   }
-  res.json({ ok: true, uid: User.id, name: name });
+  const token = generateJwt(User.id, User.name);
+
+  res.json({ ok: true, uid: User.id, name: User.name, token });
 };
 
 const renewToken = (req, res = response) => {
