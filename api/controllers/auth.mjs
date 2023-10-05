@@ -67,7 +67,8 @@ const loginUser = async (req, res = response) => {
 };
 
 const renewToken = (req, res = response) => {
-  res.json({ ok: true, msg: "renew" });
+  const uid = req.uid;
+  res.json({ ok: true, uid: uid });
 };
 
 export { createUser, loginUser, renewToken };

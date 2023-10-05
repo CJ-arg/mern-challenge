@@ -10,9 +10,9 @@ export const validateJwt = (req, res, next) => {
     });
   }
   try {
-    const payload = jwt.verify(token, process.env.SECRET_JWT_SEED);
-
-    console.log(payload);
+    const { uid, name } = jwt.verify(token, process.env.SECRET_JWT_SEED);
+    req.uid = uid;
+    req.name = name;
   } catch (error) {
     return res.status(401).json({
       ok: false,
