@@ -40,7 +40,6 @@ const createUser = async (req, res = response) => {
 
 const loginUser = async (req, res = response) => {
   const { email, password } = req.body;
-  console.log(email, password);
 
   try {
     const user = await User.findOne({ email });
@@ -58,14 +57,13 @@ const loginUser = async (req, res = response) => {
         msg: "Invalid Password",
       });
     }
+    const token = await generateJwt(user.id, user.name);
+    res.json({ ok: true, uid: user.id, name: user.name, token });
   } catch (error) {
     res
       .status(500)
       .json({ ok: false, msg: "Error please contact administrator" });
   }
-  const token = generateJwt(user.id, user.name);
-
-  res.json({ ok: true, uid: user.id, name: user.name, token });
 };
 
 const renewToken = (req, res = response) => {
