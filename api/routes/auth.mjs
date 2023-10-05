@@ -3,11 +3,11 @@
 
 import { Router } from "express";
 import { createUser, loginUser, renewToken } from "../controllers/auth.mjs";
-
+import { validateJwt } from "../middlewares/validateJwt.mjs";
 const router = Router();
 
 router.post("/new", createUser);
 router.post("/", loginUser);
-router.post("/renew", renewToken);
+router.get("/renew", validateJwt, renewToken);
 
 export default router;
