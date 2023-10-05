@@ -66,9 +66,10 @@ const loginUser = async (req, res = response) => {
   }
 };
 
-const renewToken = (req, res = response) => {
-  const uid = req.uid;
-  res.json({ ok: true, uid: uid });
+const renewToken = async (req, res = response) => {
+  const { uid, name } = req;
+  const token = await generateJwt(uid, name);
+  res.json({ ok: true, token, uid, name });
 };
 
 export { createUser, loginUser, renewToken };
