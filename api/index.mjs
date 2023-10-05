@@ -2,9 +2,13 @@ import { dbConnection } from "../database/config.mjs";
 import express from "express";
 import authRoutes from "./routes/auth.mjs";
 import dotenv from "dotenv";
+import cors from "cors";
 dotenv.config();
 const app = express();
 dbConnection();
+//
+
+app.use(cors());
 // public directory
 app.use(express.static("../"));
 
