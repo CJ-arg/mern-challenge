@@ -19,13 +19,18 @@ const createUser = async (req, res = response) => {
     user.password = bcrypt.hashSync(password, salt);
 
     await user.save();
-    const token = generateJwt(user.id, user.name);
+    const token = await generateJwt(user.id, user.name);
     if (name.length < 3) {
       return res
         .status(400)
         .json({ ok: false, msg: "Name must be al least 3 characters" });
     }
-    res.status(201).json({ ok: true, uid: user.id, name: name, token });
+    res.status(201).json({
+      ok: true,
+      uid: user.id,
+      name: user.name,
+      token,
+    });
   } catch (error) {
     res
       .status(500)
@@ -35,9 +40,10 @@ const createUser = async (req, res = response) => {
 
 const loginUser = async (req, res = response) => {
   const { email, password } = req.body;
+  console.log(email, password);
+
   try {
     const user = await User.findOne({ email });
-    console.log(user);
 
     if (!user) {
       return res.status(400).json({
@@ -57,9 +63,9 @@ const loginUser = async (req, res = response) => {
       .status(500)
       .json({ ok: false, msg: "Error please contact administrator" });
   }
-  const token = generateJwt(User.id, User.name);
+  const token = generateJwt(user.id, user.name);
 
-  res.json({ ok: true, uid: User.id, name: User.name, token });
+  res.json({ ok: true, uid: user.id, name: user.name, token });
 };
 
 const renewToken = (req, res = response) => {
