@@ -1,6 +1,7 @@
 import { dbConnection } from "../database/config.mjs";
 import express from "express";
 import authRoutes from "./routes/auth.mjs";
+import tasksRoutes from "./routes/tasks.mjs";
 import dotenv from "dotenv";
 import cors from "cors";
 
@@ -17,6 +18,7 @@ app.use(express.text());
 app.use(express.json());
 // Rutes
 app.use("/api/auth", authRoutes);
+app.use("/api/events", tasksRoutes);
 app.listen(process.env.PORT, () => {
   console.log(`Server running in port ${process.env.PORT}`);
 });
