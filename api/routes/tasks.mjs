@@ -5,3 +5,5 @@ router.get("/", controller);
 router.post("/", createcontroller);
 
 router.put("/:id", editcontroller);
+
+router.put("/:id", deletecontroller);
