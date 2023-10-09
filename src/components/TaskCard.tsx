@@ -1,13 +1,5 @@
 import { useState } from "react";
-import {
-  Box,
-  Button,
-  FormControl,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Typography,
-} from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 function TaskCard({ title }) {
@@ -33,7 +25,7 @@ function TaskCard({ title }) {
         textAlign: "center",
       }}
     >
-      <Typography variant="h5" sx={{ mb: 2, mt: 0 }}>
+      <Typography variant="h5" sx={{ fontWeight: "bolder" }}>
         {title}
       </Typography>
       <Grid container justifyContent="center" gap={3} sx={{ mb: 1 }}>

@@ -23,7 +23,7 @@ export const Title = () => {
       xs={10}
       sx={{
         height: { sm: 150 },
-        backgroundColor: "secondary.main",
+        backgroundColor: "primary.main",
         padding: 1,
         borderRadius: 1,
         textAlign: "center",
