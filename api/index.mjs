@@ -18,7 +18,7 @@ app.use(express.text());
 app.use(express.json());
 // Rutes
 app.use("/api/auth", authRoutes);
-app.use("/api/events", tasksRoutes);
+app.use("/api/tasks", tasksRoutes);
 app.listen(process.env.PORT, () => {
   console.log(`Server running in port ${process.env.PORT}`);
 });

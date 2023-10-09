@@ -1,4 +1,4 @@
-
+app.use("/api/tasks", tasksRoutes);
 
 {
 ok:true,
