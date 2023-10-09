@@ -11,14 +11,15 @@ import { validateJwt } from "../middlewares/validateJwt.mjs";
 
 const router = Router();
 
+router.use(validateJwt);
 // Tasks with token
 
-router.get("/", validateJwt, getTasks);
+router.get("/", getTasks);
 
-router.post("/", validateJwt, createTask);
+router.post("/", createTask);
 
-router.put("/:id", validateJwt, editTask);
+router.put("/:id", editTask);
 
-router.delete("/:id", validateJwt, deleteTask);
+router.delete("/:id", deleteTask);
 
 export default router;
