@@ -56,7 +56,6 @@ export const RegisterPage = () => {
           </Grid>
         </form>
       </AuthLayout>
-
       <Grid item xs={1}>
         <Button
           variant="outlined"
