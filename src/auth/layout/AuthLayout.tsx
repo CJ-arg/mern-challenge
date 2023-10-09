@@ -23,7 +23,7 @@ export const AuthLayout = ({ children, title = "" }: ChildrenProps) => {
           width: { sm: 450 },
           backgroundColor: "lightgrey",
           padding: 5,
-          borderRadius: 0.8,
+          borderRadius: 1,
           textAlign: "center",
         }}
       >
