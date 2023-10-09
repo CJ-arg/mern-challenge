@@ -27,7 +27,7 @@ function TaskCard({ title }) {
       sx={{
         maxHeight: { sm: 580 },
         minWidth: { sm: 350 },
-        backgroundColor: "#D4F8F7",
+        backgroundColor: "#FFE2FE",
         padding: 1,
         borderRadius: 0.5,
         textAlign: "center",
