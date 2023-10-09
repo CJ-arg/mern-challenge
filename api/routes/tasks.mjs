@@ -1,17 +1,24 @@
 // /api/tasks"  tasksRoutes
 
 import { Router } from "express";
-// import { createUser, loginUser, renewToken } from "../controllers/auth.mjs";
+import {
+  getTasks,
+  createTask,
+  editTask,
+  deleteTask,
+} from "../controllers/tasks.mjs";
 import { validateJwt } from "../middlewares/validateJwt.mjs";
 
 const router = Router();
 
 // Tasks with token
 
-router.get("/", controller);
+router.get("/", validateJwt, getTasks);
 
-router.post("/", createcontroller);
+router.post("/", validateJwt, createTask);
 
-router.put("/:id", editcontroller);
+router.put("/:id", validateJwt, editTask);
 
-router.delete("/:id", deletecontroller);
+router.delete("/:id", validateJwt, deleteTask);
+
+export default router;

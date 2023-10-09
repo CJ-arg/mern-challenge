@@ -1,25 +1,18 @@
-app.use("/api/tasks", tasksRoutes);
+import { response } from "express";
 
-{
-ok:true,
-msg:"gettasks"
-}
+const getTasks = async (req, res = response) => {
+  res.json({ ok: true, msg: "getTasks" });
+};
 
-{
-ok:true,
-msg:"createtask"
-}
+const createTask = async (req, res = response) => {
+  res.json({ ok: true, msg: "createtask" });
+};
 
+const editTask = async (req, res = response) => {
+  res.json({ ok: true, msg: "edittask" });
+};
 
-{
-
-ok:true,
-msg:"edittask"
-}
-
-
-{
-
-ok:true,
-msg:"deletetask"
-}
+const deleteTask = async (req, res = response) => {
+  res.json({ ok: true, msg: "deletetask" });
+};
+export { getTasks, createTask, editTask, deleteTask };
