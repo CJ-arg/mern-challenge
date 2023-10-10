@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Grid } from "@mui/material";
 import TaskCard from "./TaskCard";
+import { TaskModal } from "./TaskModal";
 
 export const TasksList = () => {
   return (
@@ -15,6 +16,7 @@ export const TasksList = () => {
       <TaskCard title="BORRADOR" />
       <TaskCard title="TRABAJO EN CURSO" />
       <TaskCard title="LISTO" />
+      <TaskModal />
     </Grid>
   );
 };

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Modal from "react-modal";
 
 const customStyles = {
@@ -14,13 +15,23 @@ Modal.setAppElement("#root");
 // function openModal() {
 //   setIsOpen(true);
 // }
-const onCloseModal = () => {
-  console.log("cierro modal");
-};
 export const TaskModal = () => {
+  const [modalChange, setModalChange] = useState(true);
+  const onCloseModal = () => {
+    console.log("cierro modal");
+    setModalChange(false);
+  };
   return (
-    <Modal isOpen={true} onRequestClose={onCloseModal} style={customStyles}>
-      TaskModal
+    <Modal
+      overlayClassName="modal-bk"
+      isOpen={modalChange}
+      onRequestClose={onCloseModal}
+      style={customStyles}
+      className="modal"
+    >
+      <h1>TaskModal</h1>
+      <hr />
+      <p> el modal para las tasks</p>
     </Modal>
   );
 };
