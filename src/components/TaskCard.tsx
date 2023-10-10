@@ -70,8 +70,6 @@ function TaskCard({ title }) {
           {tasks[2].category === title && <TaskSingle task={tasks[2]} />}
           {tasks[2].category === title && <TaskSingle task={tasks[2]} />}
           {tasks[2].category === title && <TaskSingle task={tasks[2]} />}
-          {tasks[2].category === title && <TaskSingle task={tasks[2]} />}
-          {tasks[2].category === title && <TaskSingle task={tasks[2]} />}
         </Grid>
       </Grid>
     </Grid>
