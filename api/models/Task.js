@@ -7,6 +7,10 @@ const TaskSchema = new Schema({
   notes: {
     type: String,
   },
+  category: {
+    type: String,
+    required: true,
+  },
   dateStart: {
     type: Date,
     required: true,
