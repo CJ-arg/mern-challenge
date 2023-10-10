@@ -3,7 +3,6 @@ import Task from "../models/Task.js";
 
 const getTasks = async (req, res = response) => {
   const tasks = await Task.find().populate("user", "name");
-
   res.json({ ok: true, msg: tasks });
 };
 
