@@ -33,8 +33,9 @@ const editTask = async (req, res = response) => {
       ...req.body,
       user: uid,
     };
-    const editedTask = await Task.findByIdAndUpdate(taskId, newTask);
-
+    const editedTask = await Task.findByIdAndUpdate(taskId, newTask, {
+      new: true,
+    });
     res.json({ ok: true, msg: editedTask });
   } catch (error) {
     console.log(error);
