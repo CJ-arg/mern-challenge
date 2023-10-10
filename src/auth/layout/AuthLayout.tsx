@@ -21,7 +21,7 @@ export const AuthLayout = ({ children, title = "" }: ChildrenProps) => {
         xs={3}
         sx={{
           width: { sm: 450 },
-          backgroundColor: "lightgrey",
+          backgroundColor: "#F9FAFF",
           padding: 5,
           borderRadius: 1,
           textAlign: "center",

@@ -24,7 +24,7 @@ const editTask = async (req, res = response) => {
   try {
     const task = await Task.findById(taskId);
     if (!task) {
-      res.status(404).json({ ok: false, msg: "Task ID doesen't exist" });
+      return res.status(404).json({ ok: false, msg: "Task ID doesen't exist" });
     }
     if (task.user.toString() !== uid) {
       return res.status(401).json({ ok: false, msg: "No permission to edit" });
@@ -44,6 +44,24 @@ const editTask = async (req, res = response) => {
 };
 
 const deleteTask = async (req, res = response) => {
-  res.json({ ok: true, msg: "deletetask" });
+  const taskId = req.params.id;
+  const uid = req.uid;
+  try {
+    const task = await Task.findById(taskId);
+    if (!task) {
+      return res.status(404).json({ ok: false, msg: "Task ID doesen't exist" });
+    }
+    if (task.user.toString() !== uid) {
+      return res
+        .status(401)
+        .json({ ok: false, msg: "No permission to delete" });
+    }
+
+    const deletedTask = await Task.findByIdAndDelete(taskId);
+    res.json({ ok: true, msg: deletedTask });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ ok: false, msg: "Contact Administrator" });
+  }
 };
 export { getTasks, createTask, editTask, deleteTask };
