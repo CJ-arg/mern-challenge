@@ -2,23 +2,23 @@ import { Schema, model } from "mongoose";
 const TaskSchema = new Schema({
   title: {
     type: String,
-    require: true,
+    required: true,
   },
   notes: {
     type: String,
   },
   dateStart: {
     type: Date,
-    require: true,
+    required: true,
   },
   dateEnd: {
     type: Date,
-    require: true,
+    required: true,
   },
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",
-    require: true,
+    required: true,
   },
 });
 export default model("Task", TaskSchema);

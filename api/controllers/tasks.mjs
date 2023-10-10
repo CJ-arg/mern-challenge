@@ -1,15 +1,28 @@
 import { response } from "express";
-import Task from "../models/Task";
+import Task from "../models/Task.js";
 
 const getTasks = async (req, res = response) => {
+  const task = new Task(req.body);
+  try {
+    const dbSavedTask = await task.save();
+    res.json({ ok: true, task: dbSavedTask });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ ok: false, msg: "Contact Administrator" });
+  }
+
   res.json({ ok: true, msg: "getTasks" });
 };
 
 const createTask = async (req, res = response) => {
-  // ver que tenga el evento
-  console.log(req.body);
-
-  res.json({ ok: true, msg: "createtask" });
+  const task = new Task(req.body);
+  try {
+    const dbSavedTask = await task.save();
+    res.json({ ok: true, task: dbSavedTask });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ ok: false, msg: "Contact Administrator" });
+  }
 };
 
 const editTask = async (req, res = response) => {
