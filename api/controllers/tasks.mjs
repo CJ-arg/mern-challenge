@@ -2,21 +2,15 @@ import { response } from "express";
 import Task from "../models/Task.js";
 
 const getTasks = async (req, res = response) => {
-  const task = new Task(req.body);
-  try {
-    const dbSavedTask = await task.save();
-    res.json({ ok: true, task: dbSavedTask });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ ok: false, msg: "Contact Administrator" });
-  }
+  const tasks = await Task.find().populate("user", "name");
 
-  res.json({ ok: true, msg: "getTasks" });
+  res.json({ ok: true, msg: tasks });
 };
 
 const createTask = async (req, res = response) => {
   const task = new Task(req.body);
   try {
+    task.user = req.uid;
     const dbSavedTask = await task.save();
     res.json({ ok: true, task: dbSavedTask });
   } catch (error) {

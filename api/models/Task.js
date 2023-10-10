@@ -21,4 +21,11 @@ const TaskSchema = new Schema({
     required: true,
   },
 });
+
+TaskSchema.method("toJSON", function () {
+  const { __v, _id, ...object } = this.toObject();
+  object.id = _id;
+  return object;
+});
+
 export default model("Task", TaskSchema);
