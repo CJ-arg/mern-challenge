@@ -20,11 +20,20 @@ const createTask = async (req, res = response) => {
 
 const editTask = async (req, res = response) => {
   const taskId = req.params.id;
+  const uid = req.uid;
   try {
     const task = await Task.findById(taskId);
     if (!task) {
       res.status(404).json({ ok: false, msg: "Task ID doesen't exist" });
     }
+    if (task.user.toString() !== uid) {
+      return res.status(401).json({ ok: false, msg: "No permission to edit" });
+    }
+    const newTask = {
+      ...req.body,
+      user: uid,
+    };
+    const editedTask = await Task.findByIdAndUpdate(taskId, newTask);
   } catch (error) {
     console.log(error);
     res.status(500).json({ ok: false, msg: "Contact Administrator" });
