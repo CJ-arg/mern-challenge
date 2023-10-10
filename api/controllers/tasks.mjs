@@ -1,4 +1,5 @@
 import { response } from "express";
+import Task from "../models/Task";
 
 const getTasks = async (req, res = response) => {
   res.json({ ok: true, msg: "getTasks" });
