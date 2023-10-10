@@ -19,7 +19,16 @@ const createTask = async (req, res = response) => {
 };
 
 const editTask = async (req, res = response) => {
-  res.json({ ok: true, msg: "edittask" });
+  const taskId = req.params.id;
+  try {
+    const task = await Task.findById(taskId);
+    if (!task) {
+      res.status(404).json({ ok: false, msg: "Task ID doesen't exist" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ ok: false, msg: "Contact Administrator" });
+  }
 };
 
 const deleteTask = async (req, res = response) => {
