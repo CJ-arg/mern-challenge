@@ -34,6 +34,8 @@ const editTask = async (req, res = response) => {
       user: uid,
     };
     const editedTask = await Task.findByIdAndUpdate(taskId, newTask);
+
+    res.json({ ok: true, msg: editedTask });
   } catch (error) {
     console.log(error);
     res.status(500).json({ ok: false, msg: "Contact Administrator" });
