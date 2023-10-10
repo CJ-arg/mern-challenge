@@ -1,13 +1,5 @@
 import { useState } from "react";
-import {
-  Box,
-  Button,
-  FormControl,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Typography,
-} from "@mui/material";
+import { Grid } from "@mui/material";
 import TaskCard from "./TaskCard";
 
 export const TasksList = () => {
