@@ -5,6 +5,9 @@ const getTasks = async (req, res = response) => {
 };
 
 const createTask = async (req, res = response) => {
+  // ver que tenga el evento
+  console.log(req.body);
+
   res.json({ ok: true, msg: "createtask" });
 };
 

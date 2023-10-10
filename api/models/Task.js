@@ -18,6 +18,7 @@ const TaskSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",
+    require: true,
   },
 });
 export default model("Task", TaskSchema);
