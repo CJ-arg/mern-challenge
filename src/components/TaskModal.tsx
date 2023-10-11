@@ -2,6 +2,7 @@ import { useState } from "react";
 import Modal from "react-modal";
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import DateInput from "./DateInput";
+import RadioInput from "./RadioInput";
 
 const customStyles = {
   content: {
@@ -85,6 +86,7 @@ export const TaskModal = () => {
           </Grid>
           <DateInput />
         </Grid>
+        <RadioInput />
         <Grid container justifyContent="end">
           <Button variant="contained" color="primary" sx={{ mr: 4, mb: 2 }}>
             save
