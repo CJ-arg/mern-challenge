@@ -8,7 +8,7 @@ import FormLabel from "@mui/material/FormLabel";
 export default function RadioInput() {
   return (
     <FormControl>
-      <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
+      <FormLabel id="demo-row-radio-buttons-group-label">Task State</FormLabel>
       <RadioGroup
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
@@ -25,12 +25,6 @@ export default function RadioInput() {
           label="Trabajo en curso"
         />
         <FormControlLabel value="LISTO" control={<Radio />} label="Listo" />
-        <FormControlLabel
-          value="disabled"
-          disabled
-          control={<Radio />}
-          label="other"
-        />
       </RadioGroup>
     </FormControl>
   );

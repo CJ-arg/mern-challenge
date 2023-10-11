@@ -23,7 +23,7 @@ Modal.setAppElement("#root");
 export const TaskModal = () => {
   const [modalChange, setModalChange] = useState(true);
   const onCloseModal = () => {
-    setModalChange(true);
+    setModalChange(false);
   };
   const onSubmit = () => {
     console.log("onSubmit");
@@ -86,6 +86,7 @@ export const TaskModal = () => {
           </Grid>
           <DateInput />
         </Grid>
+        <hr />
         <RadioInput />
         <Grid container justifyContent="end">
           <Button variant="contained" color="primary" sx={{ mr: 4, mb: 2 }}>
