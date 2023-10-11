@@ -40,12 +40,12 @@ export const TaskModal = () => {
       style={customStyles}
     >
       <Typography variant="h4" sx={{ fontWeight: "bolder" }}>
-        New Task UI
+        Tarea
       </Typography>
       <hr />
       <form className="container" onSubmit={onSubmit}>
         <Typography variant="h6" sx={{ fontWeight: "bolder" }}>
-          Task Title
+          Título de la Tarea
         </Typography>
 
         <TextField
@@ -57,18 +57,18 @@ export const TaskModal = () => {
           }}
           // style={{ width: "300px", margin: "5px" }}
           type="text"
-          label="set Task"
+          label="Setear título"
           variant="outlined"
         />
         <Typography variant="h6" sx={{ fontWeight: "bolder" }}>
-          Task Description
+          Descripción de la Tarea
         </Typography>
 
         <TextField
           multiline={true}
           rows={4}
           type="text"
-          label="set Notes"
+          label="Setear descripción"
           variant="outlined"
           sx={{
             width: { sm: 250, xs: 111, md: 350, lg: 500 },
@@ -82,7 +82,7 @@ export const TaskModal = () => {
           <Grid container justifyContent="start" sx={{ mb: 1 }}>
             <Grid>
               <Typography variant="h6" sx={{ fontWeight: "bolder" }}>
-                Finish Task Date
+                Fecha de finalización
               </Typography>
             </Grid>
           </Grid>
@@ -97,7 +97,7 @@ export const TaskModal = () => {
             color="primary"
             sx={{ mr: 4, mb: 2 }}
           >
-            save
+            Grabar
           </Button>
         </Grid>
       </form>

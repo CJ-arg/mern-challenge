@@ -8,7 +8,9 @@ import FormLabel from "@mui/material/FormLabel";
 export default function RadioInput() {
   return (
     <FormControl>
-      <FormLabel id="demo-row-radio-buttons-group-label">Task State</FormLabel>
+      <FormLabel id="demo-row-radio-buttons-group-label">
+        Estado de la tarea
+      </FormLabel>
       <RadioGroup
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
