@@ -20,10 +20,10 @@ export const Title = () => {
     <Grid
       item
       className="box-shadow"
-      xs={10}
+      xs={11}
       sx={{
         height: { sm: 150 },
-        backgroundColor: "primary.main",
+        backgroundColor: "#FBFBFD",
         padding: 1,
         borderRadius: 1,
         textAlign: "center",

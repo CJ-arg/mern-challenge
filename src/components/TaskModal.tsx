@@ -25,8 +25,10 @@ export const TaskModal = () => {
   const onCloseModal = () => {
     setModalChange(false);
   };
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
     console.log("onSubmit");
+    setModalChange(false);
   };
   return (
     <Modal
@@ -89,7 +91,12 @@ export const TaskModal = () => {
         <hr />
         <RadioInput />
         <Grid container justifyContent="end">
-          <Button variant="contained" color="primary" sx={{ mr: 4, mb: 2 }}>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            sx={{ mr: 4, mb: 2 }}
+          >
             save
           </Button>
         </Grid>
