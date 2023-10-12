@@ -1,12 +1,23 @@
 import { Button, Grid, Link, TextField } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../useContext/UserContext";
+import { getTasks, postLogin } from "../../services/getTasks";
 
 export const LoginPage = () => {
-  const { user } = useContext(UserContext);
+  // const { user } = useContext(UserContext);
 
+  const [formState, setFormState] = useState({
+    email: "testU005@gmail.com",
+    password: "123456",
+  });
+  const { email, password } = formState;
+  // getTasks();
+  // postLogin();
+  const onInputChange = (event) => {
+    console.log(event);
+  };
   return (
     <AuthLayout title="Game Tasks">
       <form>
@@ -15,19 +26,21 @@ export const LoginPage = () => {
             <TextField
               label="Nick Name"
               type="name"
-              placeholder={user?.name}
+              value={email}
+              // placeholder={user?.name}
               fullWidth
+              onChange={onInputChange}
             ></TextField>
           </Grid>
           <Grid item xs={12} sx={{ mt: 1 }}>
             <TextField
+              value={password}
               label="Password"
               type="password"
-              placeholder={user?.name}
+              // placeholder={user?.name}
               fullWidth
-            >
-              holi
-            </TextField>
+              onChange={onInputChange}
+            ></TextField>
             <Grid container direction="row" justifyContent="right">
               <Link
                 component={RouterLink}
