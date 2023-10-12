@@ -1,7 +1,7 @@
 import { Button, Grid, Link, TextField } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../useContext/UserContext";
 import { getTasks, postLogin } from "../../services/getTasks";
 
@@ -9,15 +9,20 @@ export const LoginPage = () => {
   // const { user } = useContext(UserContext);
 
   const [formState, setFormState] = useState({
-    email: "testU005@gmail.com",
-    password: "123456",
+    email: "",
+    password: "",
   });
   const { email, password } = formState;
   // getTasks();
   // postLogin();
-  const onInputChange = (event) => {
-    console.log(event);
+  const onInputChange = ({ target }) => {
+    const { name, value } = target;
+    setFormState({ ...formState, [name]: value });
   };
+  useEffect(() => {
+    console.log("use effect");
+  }, []);
+
   return (
     <AuthLayout title="Game Tasks">
       <form>
@@ -26,18 +31,20 @@ export const LoginPage = () => {
             <TextField
               label="Nick Name"
               type="name"
-              value={email}
-              // placeholder={user?.name}
+              value={formState.email}
+              name="email"
+              placeholder={formState.email}
               fullWidth
               onChange={onInputChange}
             ></TextField>
           </Grid>
           <Grid item xs={12} sx={{ mt: 1 }}>
             <TextField
-              value={password}
+              value={formState.password}
               label="Password"
               type="password"
-              // placeholder={user?.name}
+              name="password"
+              placeholder={formState.password}
               fullWidth
               onChange={onInputChange}
             ></TextField>
