@@ -4,21 +4,16 @@ import { AuthLayout } from "../layout/AuthLayout";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../useContext/UserContext";
 import { getTasks, postLogin } from "../../services/getTasks";
+import { useForm } from "../../hooks/useForm";
 
 export const LoginPage = () => {
   // const { user } = useContext(UserContext);
-
-  const [formState, setFormState] = useState({
+  const { formState, onInputChange, email, password } = useForm({
     email: "",
     password: "",
   });
-  const { email, password } = formState;
   // getTasks();
   // postLogin();
-  const onInputChange = ({ target }) => {
-    const { name, value } = target;
-    setFormState({ ...formState, [name]: value });
-  };
   useEffect(() => {
     console.log("use effect");
   }, []);
@@ -31,20 +26,20 @@ export const LoginPage = () => {
             <TextField
               label="Nick Name"
               type="name"
-              value={formState.email}
+              value={email}
               name="email"
-              placeholder={formState.email}
+              placeholder={email}
               fullWidth
               onChange={onInputChange}
             ></TextField>
           </Grid>
           <Grid item xs={12} sx={{ mt: 1 }}>
             <TextField
-              value={formState.password}
+              value={password}
               label="Password"
               type="password"
               name="password"
-              placeholder={formState.password}
+              placeholder={password}
               fullWidth
               onChange={onInputChange}
             ></TextField>
