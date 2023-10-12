@@ -6,6 +6,8 @@ import { UserContext } from "../../useContext/UserContext";
 
 export const RegisterPage = () => {
   const { user, setCurrentUser } = useContext(UserContext);
+  console.log(user);
+
   return (
     <>
       <AuthLayout title="Create Account">
