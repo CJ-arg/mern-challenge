@@ -1,40 +1,63 @@
 import { Button, Grid, Link, TextField } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../useContext/UserContext";
+import { useForm } from "../../hooks/useForm";
 
 export const RegisterPage = () => {
-  const { user, setCurrentUser } = useContext(UserContext);
-  console.log(user);
-
+  // const { user, setCurrentUser } = useContext(UserContext);
+  // console.log(user);
+  const { formState, onInputChange, email, password, nickname } = useForm({
+    email: "",
+    password: "",
+    nickname: "",
+  });
+  // getTasks();
+  // postLogin();
+  useEffect(() => {
+    console.log("use effect");
+  }, []);
+  const registerSubmit = (event) => {
+    event.preventDefault();
+    console.log({ email, password, nickname });
+  };
   return (
     <>
       <AuthLayout title="Create Account">
-        <form>
+        <form onSubmit={registerSubmit}>
           <Grid container>
             <Grid item xs={12} sx={{ mt: 5 }}>
               <TextField
-                label="Name"
+                label="Email"
                 type="name"
-                placeholder="Name"
+                value={email}
+                name="email"
+                placeholder={email}
                 fullWidth
+                onChange={onInputChange}
               ></TextField>
             </Grid>
             <Grid item xs={12} sx={{ mt: 5 }}>
               <TextField
-                label="Nick Name"
+                label="Nickname"
                 type="name"
-                placeholder="Nick Name"
+                value={nickname}
+                name="nickname"
+                placeholder={nickname}
                 fullWidth
+                onChange={onInputChange}
               ></TextField>
             </Grid>
             <Grid item xs={12} sx={{ mt: 1 }}>
               <TextField
+                value={password}
                 label="Password"
                 type="password"
-                placeholder="Password"
+                name="password"
+                placeholder={password}
                 fullWidth
+                onChange={onInputChange}
               ></TextField>
             </Grid>
             <Grid container justifyContent="right" sx={{ mb: 3 }}>
@@ -44,8 +67,8 @@ export const RegisterPage = () => {
                   color="secondary"
                   fullWidth
                   sx={{ mb: 1, mt: 5 }}
+                  type="submit"
                 >
-                  {" "}
                   Create Account
                 </Button>
               </Grid>
@@ -58,7 +81,7 @@ export const RegisterPage = () => {
           </Grid>
         </form>
       </AuthLayout>
-      <Grid item xs={1}>
+      {/* <Grid item xs={1}>
         <Button
           variant="outlined"
           color="inherit"
@@ -74,8 +97,8 @@ export const RegisterPage = () => {
         >
           SET USER
         </Button>
-      </Grid>
-      <p> {JSON.stringify(user, null, 4)}</p>
+      </Grid> */}
+      {/* <p> {JSON.stringify(user, null, 4)}</p> */}
     </>
   );
 };

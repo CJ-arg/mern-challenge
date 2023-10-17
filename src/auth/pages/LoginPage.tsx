@@ -17,10 +17,14 @@ export const LoginPage = () => {
   useEffect(() => {
     console.log("use effect");
   }, []);
+  const loginSubmit = (event) => {
+    event.preventDefault();
+    console.log({ email, password });
+  };
 
   return (
     <AuthLayout title="Game Tasks">
-      <form>
+      <form onSubmit={loginSubmit}>
         <Grid container>
           <Grid item xs={12} sx={{ mt: 5 }}>
             <TextField
@@ -60,6 +64,7 @@ export const LoginPage = () => {
                 color="secondary"
                 fullWidth
                 sx={{ mb: 1, mt: 5 }}
+                type="submit"
               >
                 Login
               </Button>
