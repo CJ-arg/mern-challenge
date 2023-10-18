@@ -4,7 +4,7 @@ import User from "../models/User.js";
 import { generateJwt } from "../helpers/jwt.mjs";
 
 const createUser = async (req, res = response) => {
-  const { name, email, password } = req.body;
+  const { nickname, email, password } = req.body;
   try {
     let user = await User.findOne({ email });
     if (user) {
@@ -19,8 +19,8 @@ const createUser = async (req, res = response) => {
     user.password = bcrypt.hashSync(password, salt);
 
     await user.save();
-    const token = await generateJwt(user.id, user.name);
-    if (name.length < 3) {
+    const token = await generateJwt(user.id, user.nickname);
+    if (nickname.length < 3) {
       return res
         .status(400)
         .json({ ok: false, msg: "Name must be al least 3 characters" });
@@ -28,7 +28,7 @@ const createUser = async (req, res = response) => {
     res.status(201).json({
       ok: true,
       uid: user.id,
-      name: user.name,
+      name: user.nickname,
       token,
     });
   } catch (error) {
@@ -57,8 +57,8 @@ const loginUser = async (req, res = response) => {
         msg: "Invalid Password",
       });
     }
-    const token = await generateJwt(user.id, user.name);
-    res.json({ ok: true, uid: user.id, name: user.name, token });
+    const token = await generateJwt(user.id, user.nickname);
+    res.json({ ok: true, uid: user.id, name: user.nickname, token });
   } catch (error) {
     res
       .status(500)
@@ -67,9 +67,9 @@ const loginUser = async (req, res = response) => {
 };
 
 const renewToken = async (req, res = response) => {
-  const { uid, name } = req;
-  const token = await generateJwt(uid, name);
-  res.json({ ok: true, token, uid, name });
+  const { uid, nickname } = req;
+  const token = await generateJwt(uid, nickname);
+  res.json({ ok: true, token, uid, nickname });
 };
 
 export { createUser, loginUser, renewToken };

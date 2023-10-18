@@ -1,26 +1,20 @@
 import { Button, Grid, Link, TextField } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
-import { useContext, useEffect } from "react";
-import { UserContext } from "../../useContext/UserContext";
+import { postRegister } from "../../services/getTasks";
 import { useForm } from "../../hooks/useForm";
 
 export const RegisterPage = () => {
-  // const { user, setCurrentUser } = useContext(UserContext);
-  // console.log(user);
   const { formState, onInputChange, email, password, nickname } = useForm({
     email: "",
     password: "",
     nickname: "",
   });
-  // getTasks();
-  // postLogin();
-  useEffect(() => {
-    console.log("use effect");
-  }, []);
+
   const registerSubmit = (event) => {
     event.preventDefault();
     console.log({ email, password, nickname });
+    postRegister({ email, password, nickname });
   };
   return (
     <>

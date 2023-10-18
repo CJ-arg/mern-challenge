@@ -1,9 +1,9 @@
 import { Button, Grid, Link, TextField } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
-import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../useContext/UserContext";
-import { getTasks, postLogin } from "../../services/getTasks";
+// import { useContext } from "react";
+// import { UserContext } from "../../useContext/UserContext";
+import { postLogin } from "../../services/getTasks";
 import { useForm } from "../../hooks/useForm";
 
 export const LoginPage = () => {
@@ -12,10 +12,7 @@ export const LoginPage = () => {
     email: "",
     password: "",
   });
-  // getTasks();
-  useEffect(() => {
-    console.log("use effect");
-  }, []);
+
   const loginSubmit = (event) => {
     event.preventDefault();
     console.log({ email, password });
