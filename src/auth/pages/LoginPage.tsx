@@ -13,13 +13,13 @@ export const LoginPage = () => {
     password: "",
   });
   // getTasks();
-  // postLogin();
   useEffect(() => {
     console.log("use effect");
   }, []);
   const loginSubmit = (event) => {
     event.preventDefault();
     console.log({ email, password });
+    postLogin({ email, password });
   };
 
   return (

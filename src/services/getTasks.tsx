@@ -1,7 +1,5 @@
 import userApi from "./userApi";
 
-const email = "testU005@gmail.com";
-const password = "123456";
 export const getTasks = async () => {
   try {
     const resp = await userApi.get("tasks");
@@ -10,7 +8,7 @@ export const getTasks = async () => {
     ("error");
   }
 };
-export const postLogin = async () => {
+export const postLogin = async ({ email, password }) => {
   try {
     const resp = await userApi.post("auth", { email, password });
     console.log(resp);
