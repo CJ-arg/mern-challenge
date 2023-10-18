@@ -10,8 +10,10 @@ export const getTasks = async () => {
 };
 export const postLogin = async ({ email, password }) => {
   try {
-    const resp = await userApi.post("auth", { email, password });
-    console.log(resp);
+    const { data } = await userApi.post("auth", { email, password });
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("token-init-date", new Date().getTime());
+    console.log(data);
   } catch (error) {
     console.log({ error });
   }
