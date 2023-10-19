@@ -1,12 +1,12 @@
 import userApi from "./userApi";
-
+import Swal from "sweetalert2";
 interface UserLogin {
   email: string;
   password: string;
 }
 
 const onLogout = (text: string): void => {
-  console.log(text);
+  Swal.fire("Error en la autenticacion", text, "error");
 };
 export const getTasks = async (): Promise<void> => {
   try {
@@ -38,6 +38,6 @@ export const postRegister = async ({ email, password, nickname }) => {
     localStorage.setItem("token-init-date", new Date().getTime());
     console.log(data);
   } catch (error) {
-    onLogout("No Autorizado");
+    onLogout(error.response.data?.msg);
   }
 };
