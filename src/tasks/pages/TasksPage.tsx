@@ -18,10 +18,11 @@ export const TasksPage = () => {
     <Grid
       container
       spacing={0}
+      xs={12}
       direction="row"
       alignItems="top"
       justifyContent="center"
-      sx={{ minHeight: "100vh", backgroundColor: "primary.main", padding: 4 }}
+      sx={{ minHeight: "100vh", backgroundColor: "primary.main", padding: 0 }}
     >
       <Title />
       <TasksList />
