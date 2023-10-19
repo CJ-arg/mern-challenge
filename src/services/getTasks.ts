@@ -28,15 +28,14 @@ export const postLogin = async ({ email, password }: UserLogin) => {
 };
 export const postRegister = async ({ email, password, nickname }) => {
   console.log(email, password, nickname);
-
   try {
     const { data } = await userApi.post("auth/new", {
       nickname,
       email,
       password,
     });
-    // localStorage.setItem("token", data.token);
-    // localStorage.setItem("token-init-date", new Date().getTime());
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("token-init-date", new Date().getTime());
     console.log(data);
   } catch (error) {
     onLogout("No Autorizado");
