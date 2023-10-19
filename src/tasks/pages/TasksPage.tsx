@@ -1,19 +1,20 @@
-import { useState, useContext } from "react";
-import {
-  Box,
-  Button,
-  FormControl,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Typography,
-} from "@mui/material";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { UserContext } from "../../useContext/UserContext";
+import { Grid } from "@mui/material";
+
 import { Title } from "../../components/Title";
 import { TasksList } from "../../components/TasksList";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export const TasksPage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/auth/login");
+    }
+  }, []);
+
   return (
     <Grid
       container

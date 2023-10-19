@@ -1,12 +1,21 @@
 import { Button, Grid, Link, TextField } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
-// import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 // import { UserContext } from "../../useContext/UserContext";
 import { postLogin } from "../../services/getTasks";
 import { useForm } from "../../hooks/useForm";
+import { useEffect } from "react";
 
 export const LoginPage = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/");
+    }
+  }, []);
+
   // const { user } = useContext(UserContext);
   const { formState, onInputChange, email, password } = useForm({
     email: "",
@@ -17,6 +26,7 @@ export const LoginPage = () => {
     event.preventDefault();
     console.log({ email, password });
     postLogin({ email, password });
+    navigate("/");
   };
 
   return (
