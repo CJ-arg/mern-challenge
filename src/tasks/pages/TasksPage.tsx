@@ -1,5 +1,4 @@
 import { Grid } from "@mui/material";
-
 import { Title } from "../../components/Title";
 import { TasksList } from "../../components/TasksList";
 import { useNavigate } from "react-router-dom";
