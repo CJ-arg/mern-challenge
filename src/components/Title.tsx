@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import LogoutButton from "./LogoutButton";
 
 export const Title = () => {
   const [age, setAge] = useState("");
@@ -22,7 +23,7 @@ export const Title = () => {
       className="box-shadow"
       xs={12}
       sx={{
-        height: { sm: 150 },
+        height: { sm: 180 },
 
         backgroundColor: "#FBFBFD",
         padding: 1,
@@ -30,6 +31,16 @@ export const Title = () => {
         textAlign: "center",
       }}
     >
+      <Grid
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginRight: "25px",
+          marginTop: "5px",
+        }}
+      >
+        <LogoutButton />
+      </Grid>
       <Typography
         variant="h4"
         sx={{ mb: 3, mt: 1, fontWeight: "bolder", letterSpacing: "2px" }}
