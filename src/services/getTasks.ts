@@ -1,5 +1,6 @@
 import userApi from "./userApi";
 import Swal from "sweetalert2";
+import { Title } from "../components/Title";
 interface UserLogin {
   email: string;
   password: string;
@@ -9,8 +10,8 @@ interface UserRegister {
   password: string;
   nickname: string;
 }
-const onLogout = (text: string): void => {
-  Swal.fire("Error en la autenticacion", text, "error");
+const onLogout = (title: string, text: string): void => {
+  Swal.fire(title, text, "error");
 };
 export const getTasks = async (): Promise<void> => {
   try {
@@ -60,6 +61,10 @@ export const checkAuthToken = async (): Promise<void> => {
     // postLogin({ email, password })
   } catch (error) {
     localStorage.clear();
-    onLogout("expiro el  TOKEN");
+    onLogout("CIERRE DE SESION", "expiro el  TOKEN");
   }
+};
+export const autoLogout = (Title: string, text: string): void => {
+  localStorage.clear();
+  onLogout("CIERRE DE SESION", "DESLOGUEARSE");
 };
