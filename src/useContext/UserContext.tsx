@@ -5,12 +5,15 @@ interface UserContextType {
   user:
     | {
         id: number;
-        name: string;
+        nickname: string;
         email: string;
+        token: string;
       }
     | undefined;
   setCurrentUser: (
-    user: { id: number; name: string; email: string } | undefined
+    user:
+      | { id: number; nickname: string; email: string; token: string }
+      | undefined
   ) => void;
 }
 

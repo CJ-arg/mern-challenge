@@ -1,6 +1,5 @@
 import userApi from "./userApi";
 import Swal from "sweetalert2";
-import { Title } from "../components/Title";
 
 interface UserLogin {
   email: string;
@@ -11,7 +10,6 @@ interface UserRegister {
   password: string;
   nickname: string;
 }
-
 const onLogout = (title: string, text: string): void => {
   Swal.fire(title, text, "error");
 };
@@ -23,6 +21,7 @@ export const getTasks = async (): Promise<void> => {
     ("error");
   }
 };
+
 export const postLogin = async ({ email, password }: UserLogin) => {
   try {
     const { data } = await userApi.post("auth", { email, password });
@@ -30,7 +29,7 @@ export const postLogin = async ({ email, password }: UserLogin) => {
     localStorage.setItem("token-init-date", new Date().getTime());
     console.log(data);
   } catch (error) {
-    onLogout("No Autorizado");
+    onLogout("No Autorizado", "No Autorizado");
   }
 };
 export const postRegister = async ({
@@ -69,5 +68,4 @@ export const checkAuthToken = async (): Promise<void> => {
 export const autoLogout = (Title: string, text: string): void => {
   localStorage.clear();
   onLogout("CIERRE DE SESION", "DESLOGUEARSE");
-  navigate("/auth/login");
 };
