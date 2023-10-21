@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
 interface UserContextType {
-  hola: string;
+
   user:
     | {
         id: number;
@@ -11,8 +11,9 @@ interface UserContextType {
       }
     | undefined;
   setCurrentUser: (
+jwy:
     user:
-      | { id: number; nickname: string; email: string; token: string }
+      | { id: number; nickname: string; email: string; }
       | undefined
   ) => void;
 }
