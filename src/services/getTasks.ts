@@ -69,3 +69,12 @@ export const autoLogout = (Title: string, text: string): void => {
   localStorage.clear();
   onLogout("CIERRE DE SESION", "DESLOGUEARSE");
 };
+
+export const saveTask = async (task) => {
+  try {
+    const resp = await userApi.get("tasks");
+    console.log(resp);
+  } catch (error) {
+    ("error");
+  }
+};

@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import DateInput from "./DateInput";
 import RadioInput from "./RadioInput";
+import { useForm } from "../hooks/useForm";
 
 const customStyles = {
   content: {
@@ -25,9 +26,14 @@ export const TaskModal = () => {
   const onCloseModal = () => {
     setModalChange(false);
   };
-  const onSubmit = (e) => {
+  const { formState, onInputChange, title, description, status } = useForm({
+    title: "",
+    description: "",
+    status: "",
+  });
+  const onTaskSubmit = (e) => {
     e.preventDefault();
-    console.log("onSubmit");
+    console.log(formState);
     setModalChange(false);
   };
   return (
@@ -43,7 +49,7 @@ export const TaskModal = () => {
         Tarea
       </Typography>
       <hr />
-      <form className="container" onSubmit={onSubmit}>
+      <form className="container" onSubmit={onTaskSubmit}>
         <Typography variant="h6" sx={{ fontWeight: "bolder" }}>
           Título de la Tarea
         </Typography>
@@ -58,7 +64,11 @@ export const TaskModal = () => {
           // style={{ width: "300px", margin: "5px" }}
           type="text"
           label="Setear título"
+          fullWidth
           variant="outlined"
+          value={title}
+          name="title"
+          onChange={onInputChange}
         />
         <Typography variant="h6" sx={{ fontWeight: "bolder" }}>
           Descripción de la Tarea
@@ -76,20 +86,14 @@ export const TaskModal = () => {
             padding: 1,
             borderRadius: 0.5,
           }}
+          value={description}
+          name="description"
+          onChange={onInputChange}
         />
         <hr />
-        <Grid>
-          <Grid container justifyContent="start" sx={{ mb: 1 }}>
-            <Grid>
-              <Typography variant="h6" sx={{ fontWeight: "bolder" }}>
-                Fecha de finalización
-              </Typography>
-            </Grid>
-          </Grid>
-          <DateInput />
-        </Grid>
+
         <hr />
-        <RadioInput />
+        <RadioInput status="status" />
         <Grid container justifyContent="end">
           <Button
             type="submit"
