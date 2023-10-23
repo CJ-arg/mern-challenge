@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Modal from "react-modal";
 import { Button, Grid, TextField, Typography } from "@mui/material";
-import DateInput from "./DateInput";
 import RadioInput from "./RadioInput";
 import { useForm } from "../hooks/useForm";
 
@@ -29,13 +28,14 @@ export const TaskModal = () => {
   const { formState, onInputChange, title, description, status } = useForm({
     title: "",
     description: "",
-    status: "",
+    status: "BORRADOR",
   });
   const onTaskSubmit = (e) => {
     e.preventDefault();
     console.log(formState);
     setModalChange(false);
   };
+
   return (
     <Modal
       className="modal"
@@ -93,7 +93,7 @@ export const TaskModal = () => {
         <hr />
 
         <hr />
-        <RadioInput status="status" />
+        <RadioInput status={status} onInputChange={onInputChange} />
         <Grid container justifyContent="end">
           <Button
             type="submit"

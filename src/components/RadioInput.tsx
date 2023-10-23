@@ -5,7 +5,16 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
-export default function RadioInput() {
+export default function RadioInput({ status, onInputChange }) {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    onInputChange({
+      target: {
+        name: "status",
+        value: (event.target as HTMLInputElement).value,
+      },
+    });
+  };
+
   return (
     <FormControl>
       <FormLabel id="demo-row-radio-buttons-group-label">
@@ -15,6 +24,8 @@ export default function RadioInput() {
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
         name="row-radio-buttons-group"
+        value={status}
+        onChange={handleChange}
       >
         <FormControlLabel
           value="BORRADOR"
