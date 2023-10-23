@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import { UserContext } from "../useContext/UserContext";
 
 const FabAddNew = () => {
+  const { modalChange, setModalChange } = useContext(UserContext);
+
   const handleClickNew = () => {
+    setModalChange(true);
     console.log("modal");
   };
   return (

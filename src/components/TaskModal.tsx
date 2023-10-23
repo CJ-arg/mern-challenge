@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Modal from "react-modal";
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import RadioInput from "./RadioInput";
 import { useForm } from "../hooks/useForm";
+import { UserContext } from "../useContext/UserContext";
 
 const customStyles = {
   content: {
@@ -21,7 +22,8 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 export const TaskModal = () => {
-  const [modalChange, setModalChange] = useState(true);
+  const { modalChange, setModalChange } = useContext(UserContext);
+
   const onCloseModal = () => {
     setModalChange(false);
   };
@@ -32,7 +34,7 @@ export const TaskModal = () => {
   });
   const onTaskSubmit = (e) => {
     e.preventDefault();
-    console.log(formState);
+    // console.log(formState);
     setModalChange(false);
   };
 

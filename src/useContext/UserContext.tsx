@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
 interface UserContextType {
-  hola: string;
+  modal: boolean;
   user:
     | {
         id: number;
@@ -15,6 +15,7 @@ interface UserContextType {
       | { id: number; nickname: string; email: string; token: string }
       | undefined
   ) => void;
+  setModalChange: () => void;
 }
 
 export const UserContext = createContext<UserContextType | undefined>(
