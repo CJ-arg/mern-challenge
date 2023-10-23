@@ -4,11 +4,10 @@ import AddIcon from "@mui/icons-material/Add";
 import { UserContext } from "../useContext/UserContext";
 
 const FabAddNew = () => {
-  const { modalChange, setModalChange } = useContext(UserContext);
+  const { setModalChange } = useContext(UserContext);
 
   const handleClickNew = () => {
     setModalChange(true);
-    console.log("modal");
   };
   return (
     <Fab
