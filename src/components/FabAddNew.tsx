@@ -5,7 +5,7 @@ import AddIcon from "@mui/icons-material/Add";
 const FabAddNew = () => {
   return (
     <Fab
-      color="secondary"
+      color="error"
       aria-label="add"
       sx={{ position: "fixed", bottom: 16, right: 16 }}
     >
