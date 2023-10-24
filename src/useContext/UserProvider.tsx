@@ -7,7 +7,7 @@ interface UserProviderProps {
 
 export const UserProvider = ({ children }: UserProviderProps) => {
   const [user, setCurrentUser] = useState({});
-  const [modalChange, setCurrentUser] = useState({});
+  const [modalChange, setModalChange] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
   return (
     <UserContext.Provider

@@ -1,9 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Modal from "react-modal";
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import RadioInput from "./RadioInput";
 import { useForm } from "../hooks/useForm";
 import { UserContext } from "../useContext/UserContext";
+import { Title } from "./Title";
 
 const customStyles = {
   content: {
@@ -35,6 +36,8 @@ export const TaskModal = () => {
   const onTaskSubmit = (e) => {
     e.preventDefault();
     // console.log(formState);
+    if (title.length <= 0 || description.length <= 0) return;
+
     setModalChange(false);
   };
 
