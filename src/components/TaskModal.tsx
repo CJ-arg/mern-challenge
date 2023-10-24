@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import Modal from "react-modal";
+import Swal from "sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import RadioInput from "./RadioInput";
 import { useForm } from "../hooks/useForm";
@@ -36,8 +38,10 @@ export const TaskModal = () => {
   const onTaskSubmit = (e) => {
     e.preventDefault();
     // console.log(formState);
-    if (title.length <= 0 || description.length <= 0) return;
-
+    if (title.length <= 0 || description.length <= 0) {
+      Swal.fire("Debe completar los campos", "Título y descrición");
+      return;
+    }
     setModalChange(false);
   };
 
