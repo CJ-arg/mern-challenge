@@ -9,13 +9,15 @@ interface UserContextType {
         token: string;
       }
     | undefined;
-  modalChange: boolean;
   setCurrentUser: (
     user:
       | { id: number; nickname: string; email: string; token: string }
       | undefined
   ) => void;
+  modalChange: boolean;
   setModalChange: (modalChange: boolean) => void;
+  loggedIn: boolean;
+  setLoggedIn: (modalChange: boolean) => void;
 }
 
 export const UserContext = createContext<UserContextType | undefined>(
