@@ -12,11 +12,13 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import LogoutButton from "./LogoutButton";
 
 export const Title = () => {
-  const [age, setAge] = useState("");
+  const [project, setProject] = useState("BANCO");
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
+    setProject(event.target.value as string);
   };
+  console.log(project);
+
   return (
     <Grid
       item
@@ -56,13 +58,13 @@ export const Title = () => {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={age}
+              value={project}
               label="Proyectos"
               onChange={handleChange}
             >
-              <MenuItem value={10}>ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+              <MenuItem value={"BANCO"}>Banco</MenuItem>
+              <MenuItem value={"APP"}>App</MenuItem>
+              <MenuItem value={"PERSONAL"}>Personal</MenuItem>
             </Select>
           </FormControl>
         </Box>
