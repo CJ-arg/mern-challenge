@@ -4,19 +4,11 @@ const TaskSchema = new Schema({
     type: String,
     required: true,
   },
-  notes: {
+  description: {
     type: String,
   },
-  category: {
+  status: {
     type: String,
-    required: true,
-  },
-  dateStart: {
-    type: Date,
-    required: true,
-  },
-  dateEnd: {
-    type: Date,
     required: true,
   },
   user: {
