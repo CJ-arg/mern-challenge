@@ -2,17 +2,31 @@ import { Grid } from "@mui/material";
 import { Title } from "../../components/Title";
 import { TasksList } from "../../components/TasksList";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { getTasks } from "../../services/getTasks";
+import { UserContext } from "../../useContext/UserContext";
 
 export const TasksPage = () => {
   const navigate = useNavigate();
+  const { data, setData } = useContext(UserContext);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
       navigate("/auth/login");
+    } else {
+      !data && fetchTasks();
     }
   }, []);
+
+  const fetchTasks = async () => {
+    try {
+      const data = await getTasks();
+      setData(data);
+    } catch (error) {
+      console.error("Error al obtener tareas:", error);
+    }
+  };
 
   return (
     <Grid

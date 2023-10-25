@@ -6,12 +6,11 @@ interface UserContextType {
         id: number;
         nickname: string;
         email: string;
-        token: string;
-      }
+         }
     | undefined;
   setCurrentUser: (
     user:
-      | { id: number; nickname: string; email: string; token: string }
+      | { id: number; nickname: string; email: string; }
       | undefined
   ) => void;
   modalChange: boolean;

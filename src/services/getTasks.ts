@@ -20,10 +20,12 @@ interface Task {
 const onLogout = (title: string, text: string): void => {
   Swal.fire(title, text, "error");
 };
+
 export const getTasks = async (): Promise<void> => {
   try {
-    const resp = await userApi.get("tasks");
-    console.log(resp);
+    const { data } = await userApi.get("tasks");
+
+    return data;
   } catch (error) {
     ("error");
   }

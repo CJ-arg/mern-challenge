@@ -1,11 +1,9 @@
-import { useState } from "react";
 import { Button, Grid, Typography } from "@mui/material";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 function TaskSingle({ task }) {
-  const [age, setAge] = useState("");
-  console.log(task);
+  // console.log(task);
 
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string);

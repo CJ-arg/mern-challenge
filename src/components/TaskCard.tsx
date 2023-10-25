@@ -42,11 +42,7 @@ function TaskCard({ title }) {
       },
     },
   ];
-  const [age, setAge] = useState("");
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
-  };
   return (
     <Grid
       item
