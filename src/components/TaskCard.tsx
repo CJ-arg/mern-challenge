@@ -6,6 +6,7 @@ import TaskSingle from "./TaskSingle";
 function TaskCard({ title }) {
   const tasks = [
     {
+      _id: "123456",
       title: "Hacer boceto",
       notes: "terminar diseño en figma boceto",
       dateStart: new Date(),
@@ -17,6 +18,7 @@ function TaskCard({ title }) {
       },
     },
     {
+      _id: "123457",
       title: " Trabajo en curso",
       notes: "una tarea que se esta realizando",
       dateStart: new Date(),
@@ -28,6 +30,7 @@ function TaskCard({ title }) {
       },
     },
     {
+      _id: "123458",
       title: "tarea lista",
       notes: "terminado en figma",
       dateStart: new Date(),
