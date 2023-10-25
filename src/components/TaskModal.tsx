@@ -7,6 +7,7 @@ import RadioInput from "./RadioInput";
 import RadioInputProject from "./RadioInputProject";
 import { useForm } from "../hooks/useForm";
 import { UserContext } from "../useContext/UserContext";
+import { saveTask } from "../services/getTasks";
 
 const customStyles = {
   content: {
@@ -25,7 +26,7 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 export const TaskModal = () => {
-  const { modalChange, setModalChange, user } = useContext(UserContext);
+  const { modalChange, setModalChange } = useContext(UserContext);
 
   const onCloseModal = () => {
     setModalChange(false);
@@ -44,10 +45,11 @@ export const TaskModal = () => {
       Swal.fire("Debe completar los campos", "Título y descrición");
       return;
     }
+    console.log({ title, description, status, project });
+
+    saveTask({ title, description, status, project });
     setModalChange(false);
   };
-  console.log(title, description, status, project, "datos modal");
-  console.log(user, "user context");
 
   return (
     <Modal

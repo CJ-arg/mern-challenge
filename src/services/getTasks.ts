@@ -10,6 +10,13 @@ interface UserRegister {
   password: string;
   nickname: string;
 }
+interface Task {
+  title: string;
+  description: string;
+  status: string;
+  project: string;
+}
+
 const onLogout = (title: string, text: string): void => {
   Swal.fire(title, text, "error");
 };
@@ -70,9 +77,19 @@ export const autoLogout = (Title: string, text: string): void => {
   onLogout("CIERRE DE SESION", "DESLOGUEARSE");
 };
 
-export const saveTask = async (task) => {
+export const saveTask = async ({
+  title,
+  description,
+  status,
+  project,
+}: Task) => {
   try {
-    const resp = await userApi.get("tasks");
+    const resp = await userApi.post("tasks", {
+      title,
+      description,
+      status,
+      project,
+    });
     console.log(resp);
   } catch (error) {
     ("error");
