@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { Grid, Typography } from "@mui/material";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
 import TaskSingle from "./TaskSingle";
+import { UserContext } from "../useContext/UserContext";
+import { Title } from "./Title";
 
 function TaskCard({ title }) {
+  const { data } = useContext(UserContext);
+  // const { msg } = data;
   const tasks = [
     {
       _id: "123456",
@@ -43,6 +46,7 @@ function TaskCard({ title }) {
     },
   ];
 
+  data && console.log(data.msg, "4");
   return (
     <Grid
       item
@@ -64,11 +68,16 @@ function TaskCard({ title }) {
       </Typography>
       <Grid container justifyContent="start" sx={{ mb: 1 }}>
         <Grid item xs={1}>
+          {data &&
+            data.msg
+              .filter((item) => item.status === title)
+              .map((task) => <TaskSingle key={task._id} task={task} />)}
+          {/* {data && data.msg.map((item) => console.log(item))}
           {tasks[0].category === title && <TaskSingle task={tasks[0]} />}
           {tasks[1].category === title && <TaskSingle task={tasks[1]} />}
           {tasks[2].category === title && <TaskSingle task={tasks[2]} />}
           {tasks[2].category === title && <TaskSingle task={tasks[2]} />}
-          {tasks[2].category === title && <TaskSingle task={tasks[2]} />}
+          {tasks[2].category === title && <TaskSingle task={tasks[2]} />} */}
         </Grid>
       </Grid>
     </Grid>
