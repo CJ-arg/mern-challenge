@@ -4,9 +4,9 @@ import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import RadioInput from "./RadioInput";
+import RadioInputProject from "./RadioInputProject";
 import { useForm } from "../hooks/useForm";
 import { UserContext } from "../useContext/UserContext";
-import { Title } from "./Title";
 
 const customStyles = {
   content: {
@@ -25,16 +25,18 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 export const TaskModal = () => {
-  const { modalChange, setModalChange } = useContext(UserContext);
+  const { modalChange, setModalChange, user } = useContext(UserContext);
 
   const onCloseModal = () => {
     setModalChange(false);
   };
-  const { formState, onInputChange, title, description, status } = useForm({
-    title: "",
-    description: "",
-    status: "BORRADOR",
-  });
+  const { formState, onInputChange, title, description, status, project } =
+    useForm({
+      title: "",
+      description: "",
+      status: "BORRADOR",
+      project: "BANCO",
+    });
   const onTaskSubmit = (e) => {
     e.preventDefault();
     // console.log(formState);
@@ -44,6 +46,8 @@ export const TaskModal = () => {
     }
     setModalChange(false);
   };
+  console.log(title, description, status, project, "datos modal");
+  console.log(user, "user context");
 
   return (
     <Modal
@@ -100,9 +104,9 @@ export const TaskModal = () => {
           onChange={onInputChange}
         />
         <hr />
-
-        <hr />
         <RadioInput status={status} onInputChange={onInputChange} />
+        <hr />
+        <RadioInputProject project={project} onInputChange={onInputChange} />
         <Grid container justifyContent="end">
           <Button
             type="submit"
