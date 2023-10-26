@@ -2,51 +2,10 @@ import { useContext } from "react";
 import { Grid, Typography } from "@mui/material";
 import TaskSingle from "./TaskSingle";
 import { UserContext } from "../useContext/UserContext";
-import { Title } from "./Title";
 
 function TaskCard({ title }) {
   const { data } = useContext(UserContext);
-  // const { msg } = data;
-  const tasks = [
-    {
-      _id: "123456",
-      title: "Hacer boceto",
-      notes: "terminar diseño en figma boceto",
-      dateStart: new Date(),
-      dateEnd: new Date().setHours(new Date().getHours() + 24),
-      category: "BORRADOR",
-      user: {
-        _id: "123456",
-        name: "Carlos",
-      },
-    },
-    {
-      _id: "123457",
-      title: " Trabajo en curso",
-      notes: "una tarea que se esta realizando",
-      dateStart: new Date(),
-      dateEnd: new Date().setHours(new Date().getHours() + 34),
-      category: "TRABAJO EN CURSO",
-      user: {
-        _id: "23456",
-        name: "Carlos",
-      },
-    },
-    {
-      _id: "123458",
-      title: "tarea lista",
-      notes: "terminado en figma",
-      dateStart: new Date(),
-      dateEnd: new Date().setHours(new Date().getHours() + 44),
-      category: "LISTO",
-      user: {
-        _id: "3456",
-        name: "Carlos",
-      },
-    },
-  ];
 
-  data && console.log(data.msg, "4");
   return (
     <Grid
       item
@@ -72,12 +31,6 @@ function TaskCard({ title }) {
             data.msg
               .filter((item) => item.status === title)
               .map((task) => <TaskSingle key={task._id} task={task} />)}
-          {/* {data && data.msg.map((item) => console.log(item))}
-          {tasks[0].category === title && <TaskSingle task={tasks[0]} />}
-          {tasks[1].category === title && <TaskSingle task={tasks[1]} />}
-          {tasks[2].category === title && <TaskSingle task={tasks[2]} />}
-          {tasks[2].category === title && <TaskSingle task={tasks[2]} />}
-          {tasks[2].category === title && <TaskSingle task={tasks[2]} />} */}
         </Grid>
       </Grid>
     </Grid>
