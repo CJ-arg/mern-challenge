@@ -40,13 +40,10 @@ export const TaskModal = () => {
     });
   const onTaskSubmit = (e) => {
     e.preventDefault();
-    // console.log(formState);
     if (title.length <= 0 || description.length <= 0) {
       Swal.fire("Debe completar los campos", "Título y descrición");
       return;
     }
-    console.log({ title, description, status, project });
-
     saveTask({ title, description, status, project });
     setModalChange(false);
   };
