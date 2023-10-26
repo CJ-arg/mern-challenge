@@ -3,8 +3,6 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 function TaskSingle({ task }) {
-  console.log(task, "task");
-
   return (
     <Grid
       item
