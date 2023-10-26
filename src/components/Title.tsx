@@ -13,12 +13,9 @@ import LogoutButton from "./LogoutButton";
 
 export const Title = () => {
   const [project, setProject] = useState("BANCO");
-
   const handleChange = (event: SelectChangeEvent) => {
     setProject(event.target.value as string);
   };
-  console.log(project);
-
   return (
     <Grid
       item
