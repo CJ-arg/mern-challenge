@@ -28,6 +28,8 @@ If you are developing a production application, we recommend updating the config
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 
+folder to run BKend
+student@LAPTOP-NETJONAP MINGW64 ~/Desktop/challenge/mern-challenge/api (main)
 Script to run BACKEND
 $ npm run back // node
 $ npm run dev // nodemon
