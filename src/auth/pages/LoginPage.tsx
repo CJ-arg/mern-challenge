@@ -1,13 +1,13 @@
 import { Button, Grid, Link, TextField } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, redirect, useNavigate } from "react-router-dom";
 import { AuthLayout } from "../layout/AuthLayout";
-import { useNavigate } from "react-router-dom";
-// import { UserContext } from "../../useContext/UserContext";
+import { UserContext } from "../../useContext/UserContext";
 import { postLogin } from "../../services/getTasks";
 import { useForm } from "../../hooks/useForm";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 
 export const LoginPage = () => {
+  const { setLoggedIn } = useContext(UserContext);
   const navigate = useNavigate();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -16,7 +16,6 @@ export const LoginPage = () => {
     }
   }, []);
 
-  // const { user } = useContext(UserContext);
   const { formState, onInputChange, email, password } = useForm({
     email: "",
     password: "",
@@ -26,7 +25,8 @@ export const LoginPage = () => {
     event.preventDefault();
     console.log({ email, password });
     postLogin({ email, password });
-    navigate("/");
+    setLoggedIn(true);
+    redirect("/");
   };
 
   return (
