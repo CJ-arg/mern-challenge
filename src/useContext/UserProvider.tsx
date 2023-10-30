@@ -26,7 +26,7 @@ interface Data {
 export const UserProvider = ({ children }: UserProviderProps) => {
   const [user, setCurrentUser] = useState<User>();
   const [modalChange, setModalChange] = useState(false);
-  // const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [data, setData] = useState<Data>();
   return (
     <UserContext.Provider
