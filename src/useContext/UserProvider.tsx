@@ -4,6 +4,7 @@ import { UserContext } from "./UserContext";
 interface UserProviderProps {
   children: ReactNode;
 }
+
 interface User {
   id: number;
   nickname: string;
@@ -31,6 +32,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
   return (
     <UserContext.Provider
       value={{
+        TasksState,
         data,
         setData,
         user,
