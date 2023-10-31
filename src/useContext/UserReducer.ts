@@ -1,46 +1,26 @@
-import { TasksState, objTextEmpty } from "./UserProvider";
-import { IText } from "../../../types/texts";
-import { LNG } from "./TextsContext";
+import { tasksState } from "./UserProvider";
+import { types } from "./types";
 
-type TextsActionType =
-  | { type: "Texts"; payload: IText[] }
-  | { type: "TextByLanguage"; payload: IText }
-  | { type: "UpdateText"; payload: IText }
-  | { type: "SetLanguage"; payload: LNG }
-  | { type: "Error"; payload: string };
+// type TextsActionType =
+// | { type: "Texts"; payload: IText[] }
+//   | { type: "TextByLanguage"; payload: IText }
+//   | { type: "UpdateText"; payload: IText }
+//   | { type: "SetLanguage"; payload: LNG }
+//   | { type: "Error"; payload: string };
 
 export const userReducer = (
-  state: TasksState,
+  currentState: tasksState,
   action: TasksActionType
-): TasksState => {
+): tasksState => {
   switch (action.type) {
-    case "Texts":
-      return {
-        ...state,
-        texts: action.payloa,
-      };
-    case "TextByLanguage":
-      return {
-        ...state,
-        text: action.payload,
-      };
-    case "UpdateText":
-      return {
-        ...state,
-        text: action.payload,
-      };
-    case "SetLanguage":
-      return {
-        ...state,
-        language: action.payload,
-      };
-    case "Error":
-      return {
-        ...state,
-        message: action.payload,
-        text: objTextEmpty,
-      };
+    case types.login:
+      return { ...currentState, loggedIn: true };
+    case types.logout:
+      return { ...currentState, loggedIn: false };
+    case "user":
+      return { ...currentState, user: {} };
+
     default:
-      return state;
+      return currentState;
   }
 };
