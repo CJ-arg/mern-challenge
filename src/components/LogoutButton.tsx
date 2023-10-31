@@ -4,11 +4,11 @@ import { UserContext } from "../useContext/UserContext";
 import { useContext } from "react";
 
 const LogoutButton = () => {
-  const { setLoggedIn } = useContext(UserContext);
+  const { logout } = useContext(UserContext);
 
   const logOut = () => {
-    autoLogout();
-    setLoggedIn(false);
+    // autoLogout();
+    logout();
   };
   return (
     <Button variant="contained" size="small" onClick={logOut}>
