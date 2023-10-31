@@ -13,8 +13,9 @@ interface UserContextType {
   ) => void;
   modalChange: boolean;
   setModalChange: (modalChange: boolean) => void;
-  loggedIn: boolean;
-  setLoggedIn: (modalChange: boolean) => void;
+  // loggedIn: boolean;
+  // setLoggedIn: (modalChange: boolean) => void;
+  tasksState: { loggedIn: boolean };
 }
 
 export const UserContext = createContext<UserContextType | undefined>(
