@@ -17,7 +17,7 @@ export const userReducer = (
       return { ...currentState, loggedIn: true };
     case types.logout:
       return { ...currentState, loggedIn: false };
-    case "user":
+    case types.user:
       return { ...currentState, user: {} };
 
     default:
