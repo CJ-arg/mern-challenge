@@ -8,7 +8,7 @@ import { UserContext } from "../../useContext/UserContext";
 
 export const TasksPage = () => {
   const navigate = useNavigate();
-  const { data, setData, loggedIn } = useContext(UserContext);
+  const { data, setData, tasksState } = useContext(UserContext);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -17,7 +17,7 @@ export const TasksPage = () => {
     } else {
       !data && fetchTasks();
     }
-  }, [loggedIn]);
+  }, [tasksState.loggedIn]);
 
   const fetchTasks = async () => {
     try {
