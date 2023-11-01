@@ -29,8 +29,9 @@ function TaskCard({ title }) {
         <Grid item xs={1}>
           {data &&
             data.msg
+
               .filter((item) => item.status === title)
-              .map((task) => <TaskSingle key={task._id} task={task} />)}
+              .map((task) => <TaskSingle key={task.id} task={task} />)}
         </Grid>
       </Grid>
     </Grid>

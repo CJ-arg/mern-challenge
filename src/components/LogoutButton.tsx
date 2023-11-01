@@ -7,8 +7,8 @@ const LogoutButton = () => {
   const { logout } = useContext(UserContext);
 
   const logOut = () => {
-    // autoLogout();
     logout();
+    autoLogout();
   };
   return (
     <Button variant="contained" size="small" onClick={logOut}>

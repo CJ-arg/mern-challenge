@@ -1,5 +1,8 @@
 import { createContext } from "react";
-
+export interface UserLogin {
+  email: string;
+  password: string;
+}
 interface UserContextType {
   user:
     | {
@@ -8,6 +11,7 @@ interface UserContextType {
         email: string;
       }
     | undefined;
+
   setCurrentUser: (
     user: { id: number; nickname: string; email: string } | undefined
   ) => void;
@@ -16,8 +20,12 @@ interface UserContextType {
   // loggedIn: boolean;
   // setLoggedIn: (modalChange: boolean) => void;
   tasksState: { loggedIn: boolean };
+  login: (user: UserLogin) => Promise<void>;
 }
 
-export const UserContext = createContext<UserContextType | undefined>(
-  undefined
+// export const UserContext = createContext<UserContextType | undefined>(
+//   undefined
+// );
+export const UserContext = createContext<UserContextType>(
+  {} as UserContextType
 );
