@@ -66,7 +66,6 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     }
   };
   const postRegister = async ({ email, password, nickname }: UserRegister) => {
-    console.log(email, password, nickname);
     try {
       const { data } = await userApi.post("auth/new", {
         nickname,
@@ -74,6 +73,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         password,
       });
       localStorage.setItem("token", data.token);
+      dispatch({ type: "postRegister", payload: data });
       console.log(data);
     } catch (error) {
       onLogout(error.response.data?.msg);

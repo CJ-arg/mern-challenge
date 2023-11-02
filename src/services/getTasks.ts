@@ -43,24 +43,24 @@ const onLogout = (title: string, text: string): void => {
 //     onLogout("No Autorizado", "No Autorizado");
 //   }
 // };
-export const postRegister = async ({
-  email,
-  password,
-  nickname,
-}: UserRegister) => {
-  console.log(email, password, nickname);
-  try {
-    const { data } = await userApi.post("auth/new", {
-      nickname,
-      email,
-      password,
-    });
-    localStorage.setItem("token", data.token);
-    console.log(data, "asfderwg");
-  } catch (error) {
-    onLogout(error.response.data?.msg);
-  }
-};
+// export const postRegister = async ({
+//   email,
+//   password,
+//   nickname,
+// }: UserRegister) => {
+//   console.log(email, password, nickname);
+//   try {
+//     const { data } = await userApi.post("auth/new", {
+//       nickname,
+//       email,
+//       password,
+//     });
+//     localStorage.setItem("token", data.token);
+//     console.log(data, "asfderwg");
+//   } catch (error) {
+//     onLogout(error.response.data?.msg);
+//   }
+// };
 export const checkAuthToken = async (): Promise<void> => {
   const token = localStorage.getItem("token");
   if (!token) return onLogout("expiro el  TOKEN");
