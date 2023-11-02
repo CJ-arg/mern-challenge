@@ -37,7 +37,6 @@ export const UserProvider = ({ children }: UserProviderProps) => {
   const [tasksState, dispatch] = useReducer(tasksReducer, initialState);
   const [user, setCurrentUser] = useState<User>();
   const [modalChange, setModalChange] = useState(false);
-  const [data, setData] = useState<Data>();
 
   const login = async (user: UserLogin) => {
     try {
@@ -60,10 +59,8 @@ export const UserProvider = ({ children }: UserProviderProps) => {
 
   const getTasks = async (): Promise<void> => {
     try {
-      console.log("data en el provider");
       const { data } = await userApi.get("tasks");
       dispatch({ type: "getTasks", payload: data.msg });
-      console.log(data.msg, "data");
     } catch (error) {
       ("error");
     }
@@ -76,8 +73,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         logout,
         // dispatch,
         getTasks,
-        data,
-        setData,
+
         user,
         setCurrentUser,
         modalChange,

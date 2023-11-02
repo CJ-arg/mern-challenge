@@ -26,8 +26,6 @@ export const tasksReducer = (
         loggedIn: false,
       };
     case "getTasks":
-      console.log(action, "action.payload", state, "state", "data");
-
       return {
         ...state,
         msg: action.payload,
