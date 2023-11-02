@@ -81,21 +81,21 @@ export const checkAuthToken = async (): Promise<void> => {
 //   onLogout("CIERRE DE SESION", "DESLOGUEARSE");
 // };
 
-export const saveTask = async ({
-  title,
-  description,
-  status,
-  project,
-}: Task) => {
-  try {
-    const resp = await userApi.post("tasks", {
-      title,
-      description,
-      status,
-      project,
-    });
-    console.log(resp);
-  } catch (error) {
-    ("error");
-  }
-};
+// export const saveTask = async ({
+//   title,
+//   description,
+//   status,
+//   project,
+// }: Task) => {
+//   try {
+//     const resp = await userApi.post("tasks", {
+//       title,
+//       description,
+//       status,
+//       project,
+//     });
+//     console.log(resp);
+//   } catch (error) {
+//     ("error");
+//   }
+// };

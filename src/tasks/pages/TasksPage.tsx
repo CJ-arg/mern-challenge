@@ -9,6 +9,7 @@ export const TasksPage = () => {
   const navigate = useNavigate();
   const { tasksState, getTasks } = useContext(UserContext);
   const { msg } = tasksState;
+  console.log(tasksState, "tasksState");
 
   useEffect(() => {
     const token = localStorage.getItem("token");

@@ -22,6 +22,8 @@ interface UserContextType {
   tasksState: { loggedIn: boolean };
   login: (user: UserLogin) => Promise<void>;
   logout: () => Promise<void>;
+  postRegister: (user: UserRegister) => Promise<void>;
+  saveTask: (taskSave: TaskSave) => Promise<void>;
 }
 
 // export const UserContext = createContext<UserContextType | undefined>(

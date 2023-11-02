@@ -7,7 +7,6 @@ import RadioInput from "./RadioInput";
 import RadioInputProject from "./RadioInputProject";
 import { useForm } from "../hooks/useForm";
 import { UserContext } from "../useContext/UserContext";
-import { saveTask } from "../services/getTasks";
 
 const customStyles = {
   content: {
@@ -26,7 +25,7 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 export const TaskModal = () => {
-  const { modalChange, setModalChange } = useContext(UserContext);
+  const { modalChange, setModalChange, saveTask } = useContext(UserContext);
 
   const onCloseModal = () => {
     setModalChange(false);

@@ -12,7 +12,6 @@ export const RegisterPage = () => {
     nickname: "",
   });
   const { tasksState, postRegister } = useContext(UserContext);
-
   const registerSubmit = (event) => {
     event.preventDefault();
     console.log({ email, password, nickname });
@@ -77,24 +76,6 @@ export const RegisterPage = () => {
           </Grid>
         </form>
       </AuthLayout>
-      {/* <Grid item xs={1}>
-        <Button
-          variant="outlined"
-          color="inherit"
-          fullWidth
-          sx={{ mt: 0, minWidth: 50, minHeight: 55 }}
-          onClick={() =>
-            setCurrentUser({
-              id: 1213,
-              name: "Carlos HardCode",
-              email: "hardcode@gmail.com",
-            })
-          }
-        >
-          SET USER
-        </Button>
-      </Grid> */}
-      {/* <p> {JSON.stringify(user, null, 4)}</p> */}
     </>
   );
 };

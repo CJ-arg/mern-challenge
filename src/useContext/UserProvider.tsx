@@ -13,18 +13,11 @@ interface User {
   email: string;
   token: string;
 }
-interface Task {
-  title: string;
-  description?: string;
-  status: string;
-  user: {
-    id: string;
-    nombre: string;
-  };
-}
+
 interface Data {
   msg: Task[];
 }
+
 export const UserProvider = ({ children }: UserProviderProps) => {
   const onLogout = (title: string, text: string): void => {
     Swal.fire(title, text, "error");
@@ -33,7 +26,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     localStorage.clear();
     onLogout("CIERRE DE SESION", "DESLOGUEARSE");
   };
-  const initialState = { loggedIn: false, msg: [] };
+  const initialState = { loggedIn: false, msg: [], user: {}, task: {} };
   const [tasksState, dispatch] = useReducer(tasksReducer, initialState);
   const [user, setCurrentUser] = useState<User>();
   const [modalChange, setModalChange] = useState(false);
@@ -74,25 +67,41 @@ export const UserProvider = ({ children }: UserProviderProps) => {
       });
       localStorage.setItem("token", data.token);
       dispatch({ type: "postRegister", payload: data });
-      console.log(data);
     } catch (error) {
       onLogout(error.response.data?.msg);
     }
   };
-
+  const saveTask = async ({
+    title,
+    description,
+    status,
+    project,
+  }: TaskSave) => {
+    try {
+      const { data } = await userApi.post("tasks", {
+        title,
+        description,
+        status,
+        project,
+      });
+      dispatch({ type: "saveTask", payload: data.task });
+    } catch (error) {
+      ("error");
+    }
+  };
   return (
     <UserContext.Provider
       value={{
         tasksState,
         login,
         logout,
-        // dispatch,
         getTasks,
         user,
         postRegister,
         setCurrentUser,
         modalChange,
         setModalChange,
+        saveTask,
       }}
     >
       {children}

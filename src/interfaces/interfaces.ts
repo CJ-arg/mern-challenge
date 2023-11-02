@@ -12,3 +12,9 @@ interface UserRegister {
   password: string;
   nickname: string;
 }
+interface TaskSave {
+  title: string;
+  description: string;
+  status: string;
+  project: string;
+}
