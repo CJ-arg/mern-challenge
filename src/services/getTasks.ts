@@ -74,11 +74,11 @@ export const checkAuthToken = async (): Promise<void> => {
     onLogout("CIERRE DE SESION", "expiro el  TOKEN");
   }
 };
-export const autoLogout = (): void => {
-  localStorage.clear();
+// export const autoLogout = (): void => {
+//   localStorage.clear();
 
-  onLogout("CIERRE DE SESION", "DESLOGUEARSE");
-};
+//   onLogout("CIERRE DE SESION", "DESLOGUEARSE");
+// };
 
 export const saveTask = async ({
   title,

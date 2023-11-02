@@ -3,6 +3,7 @@ import { UserContext, UserLogin } from "./UserContext";
 import { tasksReducer } from "./tasksReducer";
 import { autoLogout } from "../services/getTasks";
 import userApi from "../services/userApi";
+import Swal from "sweetalert2";
 interface UserProviderProps {
   children: ReactNode;
 }
@@ -25,13 +26,14 @@ interface Task {
 interface Data {
   msg: Task[];
 }
-
+const onLogout = (title: string, text: string): void => {
+  Swal.fire(title, text, "error");
+};
 export const UserProvider = ({ children }: UserProviderProps) => {
   const initialState = { loggedIn: false };
   const [tasksState, dispatch] = useReducer(tasksReducer, initialState);
   const [user, setCurrentUser] = useState<User>();
   const [modalChange, setModalChange] = useState(false);
-  // const [loggedIn, setLoggedIn] = useState(false);
   const [data, setData] = useState<Data>();
 
   const login = async (user: UserLogin) => {
@@ -49,8 +51,8 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     }
   };
   const logout = () => {
-    // const action = { type: "logout" };
     autoLogout();
+    onLogout("CIERRE DE SESION", "DESLOGUEARSE");
     dispatch({ type: "logout" });
   };
   return (
@@ -66,8 +68,6 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         setCurrentUser,
         modalChange,
         setModalChange,
-        // loggedIn,
-        // setLoggedIn,
       }}
     >
       {children}
