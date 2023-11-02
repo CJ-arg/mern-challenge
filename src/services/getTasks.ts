@@ -21,17 +21,17 @@ const onLogout = (title: string, text: string): void => {
   Swal.fire(title, text, "error");
 };
 
-export const getTasks = async (): Promise<void> => {
-  try {
-    console.log("pasa por el gettask");
+// export const getTasks = async (): Promise<void> => {
+//   try {
+//     console.log("pasa por el gettask");
 
-    const { data } = await userApi.get("tasks");
-    console.log(data, "data");
-    return data;
-  } catch (error) {
-    ("error");
-  }
-};
+//     const { data } = await userApi.get("tasks");
+//     console.log(data, "data");
+//     return data;
+//   } catch (error) {
+//     ("error");
+//   }
+// };
 
 export const postLogin = async ({ email, password }: UserLogin) => {
   try {

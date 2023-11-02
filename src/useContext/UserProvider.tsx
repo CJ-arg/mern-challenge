@@ -33,7 +33,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     localStorage.clear();
     onLogout("CIERRE DE SESION", "DESLOGUEARSE");
   };
-  const initialState = { loggedIn: false };
+  const initialState = { loggedIn: false, msg: [] };
   const [tasksState, dispatch] = useReducer(tasksReducer, initialState);
   const [user, setCurrentUser] = useState<User>();
   const [modalChange, setModalChange] = useState(false);
@@ -60,9 +60,10 @@ export const UserProvider = ({ children }: UserProviderProps) => {
 
   const getTasks = async (): Promise<void> => {
     try {
+      console.log("data en el provider");
       const { data } = await userApi.get("tasks");
-      dispatch({ type: "getTasks", payload: data });
-      console.log(data, "data");
+      dispatch({ type: "getTasks", payload: data.msg });
+      console.log(data.msg, "data");
     } catch (error) {
       ("error");
     }

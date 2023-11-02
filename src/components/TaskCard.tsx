@@ -4,8 +4,8 @@ import TaskSingle from "./TaskSingle";
 import { UserContext } from "../useContext/UserContext";
 
 function TaskCard({ title }) {
-  const { data } = useContext(UserContext);
-
+  const { tasksState } = useContext(UserContext);
+  const { msg } = tasksState;
   return (
     <Grid
       item
@@ -27,9 +27,8 @@ function TaskCard({ title }) {
       </Typography>
       <Grid container justifyContent="start" sx={{ mb: 1 }}>
         <Grid item xs={1}>
-          {data &&
-            data.msg
-
+          {msg &&
+            msg
               .filter((item) => item.status === title)
               .map((task) => <TaskSingle key={task.id} task={task} />)}
         </Grid>
@@ -37,5 +36,4 @@ function TaskCard({ title }) {
     </Grid>
   );
 }
-
 export default TaskCard;

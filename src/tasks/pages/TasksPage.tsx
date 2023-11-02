@@ -3,12 +3,15 @@ import { Title } from "../../components/Title";
 import { TasksList } from "../../components/TasksList";
 import { useNavigate } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import { getTasks } from "../../services/getTasks";
+// import { getTasks } from '../../services/getTasks';
 import { UserContext } from "../../useContext/UserContext";
 
 export const TasksPage = () => {
   const navigate = useNavigate();
-  const { data, setData, tasksState } = useContext(UserContext);
+  const { data, setData, tasksState, getTasks } = useContext(UserContext);
+  console.log(tasksState.msg, "tasksState ahora");
+  const { msg } = tasksState;
+  console.log(msg, "msg");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -22,6 +25,9 @@ export const TasksPage = () => {
   const fetchTasks = async () => {
     try {
       const data = await getTasks();
+      console.log(data, " data en task page");
+      console.log(tasksState, "tasksState despues");
+
       setData(data);
     } catch (error) {
       console.error("Error al obtener tareas:", error);
