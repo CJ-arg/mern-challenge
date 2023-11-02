@@ -6,6 +6,8 @@ import { UserContext } from "../useContext/UserContext";
 function TaskCard({ title }) {
   const { tasksState } = useContext(UserContext);
   const { msg } = tasksState;
+  console.log(msg);
+
   return (
     <Grid
       item

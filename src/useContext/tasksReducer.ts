@@ -1,11 +1,13 @@
 import { tasksState } from "./UserProvider";
-import { Task } from "../interfaces/interfaces";
+import { Task, UserRegister } from "../interfaces/interfaces";
 
 type TasksActionType =
   | { type: "login" }
   | { type: "logout" }
   | { type: "getTasks"; payload: Task }
+  | { type: "postRegister"; payload: UserRegister }
   | { type: "Error"; payload: string };
+
 // | { type: "TextByLanguage"; payload: IText }
 // | { type: "UpdateText"; payload: IText }
 // | { type: "SetLanguage"; payload: LNG }
@@ -30,6 +32,12 @@ export const tasksReducer = (
         ...state,
         msg: action.payload,
       };
+    case "postRegister":
+      return {
+        ...state,
+        msg: action.payload,
+      };
+
     // case "user":
     //   return {
     //     ...state,

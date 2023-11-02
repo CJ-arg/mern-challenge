@@ -65,6 +65,21 @@ export const UserProvider = ({ children }: UserProviderProps) => {
       ("error");
     }
   };
+  const postRegister = async ({ email, password, nickname }: UserRegister) => {
+    console.log(email, password, nickname);
+    try {
+      const { data } = await userApi.post("auth/new", {
+        nickname,
+        email,
+        password,
+      });
+      localStorage.setItem("token", data.token);
+      console.log(data);
+    } catch (error) {
+      onLogout(error.response.data?.msg);
+    }
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -73,8 +88,8 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         logout,
         // dispatch,
         getTasks,
-
         user,
+        postRegister,
         setCurrentUser,
         modalChange,
         setModalChange,

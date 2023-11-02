@@ -33,16 +33,16 @@ const onLogout = (title: string, text: string): void => {
 //   }
 // };
 
-export const postLogin = async ({ email, password }: UserLogin) => {
-  try {
-    const { data } = await userApi.post("auth", { email, password });
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("token-init-date", new Date().getTime());
-    console.log(data);
-  } catch (error) {
-    onLogout("No Autorizado", "No Autorizado");
-  }
-};
+// export const postLogin = async ({ email, password }: UserLogin) => {
+//   try {
+//     const { data } = await userApi.post("auth", { email, password });
+//     localStorage.setItem("token", data.token);
+//     localStorage.setItem("token-init-date", new Date().getTime());
+//     console.log(data);
+//   } catch (error) {
+//     onLogout("No Autorizado", "No Autorizado");
+//   }
+// };
 export const postRegister = async ({
   email,
   password,
@@ -56,8 +56,7 @@ export const postRegister = async ({
       password,
     });
     localStorage.setItem("token", data.token);
-    localStorage.setItem("token-init-date", new Date().getTime());
-    console.log(data);
+    console.log(data, "asfderwg");
   } catch (error) {
     onLogout(error.response.data?.msg);
   }

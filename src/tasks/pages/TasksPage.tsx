@@ -17,7 +17,7 @@ export const TasksPage = () => {
     } else {
       fetchTasks();
     }
-  }, [tasksState.loggedIn]);
+  }, []);
 
   const fetchTasks = async () => {
     try {

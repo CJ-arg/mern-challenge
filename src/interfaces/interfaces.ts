@@ -7,3 +7,8 @@ interface Task {
     nombre: string;
   };
 }
+interface UserRegister {
+  email: string;
+  password: string;
+  nickname: string;
+}
