@@ -23,8 +23,10 @@ const onLogout = (title: string, text: string): void => {
 
 export const getTasks = async (): Promise<void> => {
   try {
-    const { data } = await userApi.get("tasks");
+    console.log("pasa por el gettask");
 
+    const { data } = await userApi.get("tasks");
+    console.log(data, "data");
     return data;
   } catch (error) {
     ("error");

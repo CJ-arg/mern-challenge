@@ -1,5 +1,4 @@
 import { Button } from "@mui/material";
-import { autoLogout } from "../services/getTasks";
 import { UserContext } from "../useContext/UserContext";
 import { useContext } from "react";
 
@@ -8,7 +7,6 @@ const LogoutButton = () => {
 
   const logOut = () => {
     logout();
-    autoLogout();
   };
   return (
     <Button variant="contained" size="small" onClick={logOut}>

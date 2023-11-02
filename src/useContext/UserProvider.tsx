@@ -1,7 +1,6 @@
 import { ReactNode, useReducer, useState } from "react";
 import { UserContext, UserLogin } from "./UserContext";
 import { tasksReducer } from "./tasksReducer";
-import { autoLogout } from "../services/getTasks";
 import userApi from "../services/userApi";
 import Swal from "sweetalert2";
 interface UserProviderProps {
@@ -26,10 +25,14 @@ interface Task {
 interface Data {
   msg: Task[];
 }
-const onLogout = (title: string, text: string): void => {
-  Swal.fire(title, text, "error");
-};
 export const UserProvider = ({ children }: UserProviderProps) => {
+  const onLogout = (title: string, text: string): void => {
+    Swal.fire(title, text, "error");
+  };
+  const autoLogout = (): void => {
+    localStorage.clear();
+    onLogout("CIERRE DE SESION", "DESLOGUEARSE");
+  };
   const initialState = { loggedIn: false };
   const [tasksState, dispatch] = useReducer(tasksReducer, initialState);
   const [user, setCurrentUser] = useState<User>();
@@ -43,7 +46,6 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         password: user.password,
       });
       localStorage.setItem("token", data.token);
-      console.log(data);
       dispatch({ type: "login" });
     } catch (error) {
       // onLogout("No Autorizado", "No Autorizado");
@@ -55,6 +57,16 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     onLogout("CIERRE DE SESION", "DESLOGUEARSE");
     dispatch({ type: "logout" });
   };
+
+  const getTasks = async (): Promise<void> => {
+    try {
+      const { data } = await userApi.get("tasks");
+      dispatch({ type: "getTasks", payload: data });
+      console.log(data, "data");
+    } catch (error) {
+      ("error");
+    }
+  };
   return (
     <UserContext.Provider
       value={{
@@ -62,6 +74,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         login,
         logout,
         // dispatch,
+        getTasks,
         data,
         setData,
         user,

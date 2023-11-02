@@ -21,6 +21,7 @@ interface UserContextType {
   // setLoggedIn: (modalChange: boolean) => void;
   tasksState: { loggedIn: boolean };
   login: (user: UserLogin) => Promise<void>;
+  logout: () => Promise<void>;
 }
 
 // export const UserContext = createContext<UserContextType | undefined>(

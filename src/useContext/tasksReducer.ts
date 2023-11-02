@@ -1,9 +1,10 @@
 import { tasksState } from "./UserProvider";
+import { Task } from "../interfaces/interfaces";
 
-import { autoLogout } from "../services/getTasks";
 type TasksActionType =
   | { type: "login" }
   | { type: "logout" }
+  | { type: "getTasks"; payload: Task }
   | { type: "Error"; payload: string };
 // | { type: "TextByLanguage"; payload: IText }
 // | { type: "UpdateText"; payload: IText }
@@ -23,6 +24,10 @@ export const tasksReducer = (
       return {
         ...state,
         loggedIn: false,
+      };
+    case "getTasks":
+      return {
+        ...state,
       };
     // case "user":
     //   return {
