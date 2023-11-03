@@ -64,7 +64,6 @@ export const TaskModal = () => {
         <Typography variant="h6" sx={{ fontWeight: "bolder" }}>
           Título de la Tarea
         </Typography>
-
         <TextField
           sx={{
             width: { sm: 250, xs: 111, md: 350, lg: 500 },
@@ -72,7 +71,6 @@ export const TaskModal = () => {
             padding: 1,
             borderRadius: 0.5,
           }}
-          // style={{ width: "300px", margin: "5px" }}
           type="text"
           label="Setear título"
           fullWidth
@@ -84,7 +82,6 @@ export const TaskModal = () => {
         <Typography variant="h6" sx={{ fontWeight: "bolder" }}>
           Descripción de la Tarea
         </Typography>
-
         <TextField
           multiline={true}
           rows={4}
