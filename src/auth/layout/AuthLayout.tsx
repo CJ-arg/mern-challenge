@@ -5,6 +5,7 @@ interface ChildrenProps {
   children: ReactNode;
   title: string;
 }
+
 export const AuthLayout = ({ children, title = "" }: ChildrenProps) => {
   return (
     <Grid
@@ -30,7 +31,6 @@ export const AuthLayout = ({ children, title = "" }: ChildrenProps) => {
         <Typography variant="h4" sx={{ mb: 1 }}>
           {title}
         </Typography>
-
         {children}
       </Grid>
     </Grid>
