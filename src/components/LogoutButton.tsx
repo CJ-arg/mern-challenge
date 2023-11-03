@@ -4,7 +4,6 @@ import { useContext } from "react";
 
 const LogoutButton = () => {
   const { logout } = useContext(UserContext);
-
   const logOut = () => {
     logout();
   };
