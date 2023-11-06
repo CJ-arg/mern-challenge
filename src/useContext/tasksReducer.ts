@@ -43,16 +43,7 @@ export const tasksReducer = (
         ...state,
         task: action.payload,
       };
-    // case "user":
-    //   return {
-    //     ...state,
-    //     text: action.payload,
-    //   };
-    // case 'SetLanguage':
-    //     return {
-    //         ...state,
-    //         language: action.payload
-    //     }
+
     case "Error":
       return {
         ...state,
@@ -63,20 +54,3 @@ export const tasksReducer = (
       return state;
   }
 };
-
-// export const userReducer = (
-//   currentState: tasksState,
-//   action: TasksActionType
-// ): tasksState => {
-//   switch (action.type) {
-//     case types.login:
-//       return { ...currentState, loggedIn: true };
-//     case types.logout:
-//       return { ...currentState, loggedIn: false };
-//     case types.user:
-//       return { ...currentState, UserLogin: action.payload };
-
-//     default:
-//       return currentState;
-//   }
-// };
