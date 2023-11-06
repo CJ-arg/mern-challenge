@@ -6,14 +6,12 @@ import Swal from "sweetalert2";
 interface UserProviderProps {
   children: ReactNode;
 }
-
 interface User {
   id: number;
   nickname: string;
   email: string;
   token: string;
 }
-
 interface Data {
   msg: Task[];
 }
