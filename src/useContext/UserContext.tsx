@@ -23,9 +23,7 @@ interface UserContextType {
   postRegister: (user: UserRegister) => Promise<void>;
   saveTask: (taskSave: TaskSave) => Promise<void>;
 }
-// export const UserContext = createContext<UserContextType | undefined>(
-//   undefined
-// );
+
 export const UserContext = createContext<UserContextType>(
   {} as UserContextType
 );
