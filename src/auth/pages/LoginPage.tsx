@@ -23,8 +23,6 @@ export const LoginPage = () => {
   const loginSubmit = async (event) => {
     event.preventDefault();
     await login({ email, password });
-    console.log("pasa");
-
     navigate("/");
   };
 
