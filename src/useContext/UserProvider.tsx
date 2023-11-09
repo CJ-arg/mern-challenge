@@ -44,7 +44,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
   };
   const logout = () => {
     autoLogout();
-    onLogout("CIERRE DE SESION", "DESLOGUEARSE");
+    onLogout("CIERRE DE SESION", "Te has deslogueado con exito");
     dispatch({ type: "logout" });
   };
 
