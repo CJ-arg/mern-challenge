@@ -20,9 +20,11 @@ export const LoginPage = () => {
     password: "",
   });
 
-  const loginSubmit = (event) => {
+  const loginSubmit = async (event) => {
     event.preventDefault();
-    login({ email, password });
+    await login({ email, password });
+    console.log("pasa");
+
     navigate("/");
   };
 
