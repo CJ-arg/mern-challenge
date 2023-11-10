@@ -17,9 +17,9 @@ interface Task {
   project: string;
 }
 
-const onLogout = (title: string, text: string): void => {
-  Swal.fire(title, text, "error");
-};
+// const onLogout = (title: string, text: string): void => {
+//   Swal.fire(title, text, "error");
+// };
 
 // export const getTasks = async (): Promise<void> => {
 //   try {
