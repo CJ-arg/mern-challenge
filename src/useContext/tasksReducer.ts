@@ -7,8 +7,8 @@ type TasksActionType =
   | { type: "getTasks"; payload: Task }
   | { type: "postRegister"; payload: UserRegister }
   | { type: "Error"; payload: string }
-  | { type: "saveTask"; payload: TaskSave };
-
+  | { type: "saveTask"; payload: TaskSave }
+  | { type: "deleteTask"; payload: TaskSave };
 // | { type: "TextByLanguage"; payload: IText }
 // | { type: "UpdateText"; payload: IText }
 // | { type: "SetLanguage"; payload: LNG }
@@ -43,7 +43,11 @@ export const tasksReducer = (
         ...state,
         task: action.payload,
       };
-
+    case "deleteTask":
+      return {
+        ...state,
+        task: action.payload,
+      };
     case "Error":
       return {
         ...state,
