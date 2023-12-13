@@ -1,8 +1,8 @@
 import { response } from "express";
 import jwt from "jsonwebtoken";
+
 export const validateJwt = (req, res, next) => {
   const token = req.header("x-token");
-
   if (!token) {
     return res.status(401).json({
       ok: false,
@@ -19,6 +19,5 @@ export const validateJwt = (req, res, next) => {
       msg: "No valid token",
     });
   }
-
   next();
 };
