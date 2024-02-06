@@ -3,6 +3,9 @@ export interface UserLogin {
   email: string;
   password: string;
 }
+interface TaskDelete {
+  id: string;
+}
 interface UserContextType {
   user:
     | {
@@ -22,6 +25,7 @@ interface UserContextType {
   logout: () => Promise<void>;
   postRegister: (user: UserRegister) => Promise<void>;
   saveTask: (taskSave: TaskSave) => Promise<void>;
+  deleteTask: (taskDelete: TaskDelete) => Promise<void>;
 }
 
 export const UserContext = createContext<UserContextType>(

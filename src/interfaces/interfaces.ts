@@ -18,3 +18,6 @@ interface TaskSave {
   status: string;
   project: string;
 }
+interface TaskDelete {
+  id: string;
+}

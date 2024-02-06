@@ -3,6 +3,9 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 function TaskSingle({ task }) {
+  const handleClickDelete = () => {
+    console.log(task.id);
+  };
   return (
     <Grid
       item
@@ -70,6 +73,7 @@ function TaskSingle({ task }) {
         </Button>
         <Button
           variant="outlined"
+          onClick={() => handleClickDelete()}
           sx={{
             ml: 2,
             p: 0,

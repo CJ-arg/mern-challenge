@@ -8,7 +8,7 @@ type TasksActionType =
   | { type: "postRegister"; payload: UserRegister }
   | { type: "Error"; payload: string }
   | { type: "saveTask"; payload: TaskSave }
-  | { type: "deleteTask"; payload: TaskSave };
+  | { type: "deleteTask"; payload: TaskDelete };
 // | { type: "TextByLanguage"; payload: IText }
 // | { type: "UpdateText"; payload: IText }
 // | { type: "SetLanguage"; payload: LNG }

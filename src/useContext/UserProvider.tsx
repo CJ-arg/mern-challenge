@@ -87,6 +87,16 @@ export const UserProvider = ({ children }: UserProviderProps) => {
       ("error");
     }
   };
+  const deleteTask = async ({ id }: TaskDelete) => {
+    try {
+      const { data } = await userApi.delete("tasks", {});
+      console.log(data, "desde deleteTask");
+
+      dispatch({ type: "saveTask", payload: data.task });
+    } catch (error) {
+      ("error");
+    }
+  };
   return (
     <UserContext.Provider
       value={{
@@ -100,6 +110,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         modalChange,
         setModalChange,
         saveTask,
+        deleteTask,
       }}
     >
       {children}
