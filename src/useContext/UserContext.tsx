@@ -3,6 +3,7 @@ export interface UserLogin {
   email: string;
   password: string;
 }
+
 interface TaskDelete {
   id: string;
 }

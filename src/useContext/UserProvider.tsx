@@ -15,6 +15,9 @@ interface User {
 interface Data {
   msg: Task[];
 }
+interface TaskDelete {
+  id: string;
+}
 
 export const UserProvider = ({ children }: UserProviderProps) => {
   const onLogout = (title: string, text: string): void => {
@@ -87,12 +90,10 @@ export const UserProvider = ({ children }: UserProviderProps) => {
       ("error");
     }
   };
-  const deleteTask = async ({ id }: TaskDelete) => {
+  const deleteTask = async (id: TaskDelete) => {
     try {
-      const { data } = await userApi.delete("tasks", {});
-      console.log(data, "desde deleteTask");
-
-      dispatch({ type: "saveTask", payload: data.task });
+      const { data } = await userApi.delete(`tasks/${id}`);
+      dispatch({ type: "deleteTask", payload: id });
     } catch (error) {
       ("error");
     }

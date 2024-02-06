@@ -1,10 +1,15 @@
+import { useContext } from "react";
 import { Button, Grid, Typography } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { UserContext } from "../useContext/UserContext";
 
 function TaskSingle({ task }) {
-  const handleClickDelete = () => {
+  const { deleteTask } = useContext(UserContext);
+  const handleClickDelete = (e) => {
+    e.preventDefault();
     console.log(task.id);
+    deleteTask(task.id);
   };
   return (
     <Grid
@@ -73,7 +78,7 @@ function TaskSingle({ task }) {
         </Button>
         <Button
           variant="outlined"
-          onClick={() => handleClickDelete()}
+          onClick={handleClickDelete}
           sx={{
             ml: 2,
             p: 0,

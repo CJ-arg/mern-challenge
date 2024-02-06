@@ -46,7 +46,7 @@ export const tasksReducer = (
     case "deleteTask":
       return {
         ...state,
-        task: action.payload,
+        id: action.payload,
       };
     case "Error":
       return {
