@@ -17,6 +17,7 @@ interface Data {
 }
 interface TaskDelete {
   id: string;
+  uid: string;
 }
 
 export const UserProvider = ({ children }: UserProviderProps) => {
@@ -90,7 +91,9 @@ export const UserProvider = ({ children }: UserProviderProps) => {
       ("error");
     }
   };
-  const deleteTask = async (id: TaskDelete) => {
+  const deleteTask = async ({ id, uid }: TaskDelete) => {
+    console.log(id, "desde userprovider", uid);
+
     try {
       const { data } = await userApi.delete(`tasks/${id}`);
       dispatch({ type: "deleteTask", payload: id });

@@ -7,9 +7,9 @@ import { UserContext } from "../useContext/UserContext";
 function TaskSingle({ task }) {
   const { deleteTask } = useContext(UserContext);
   const handleClickDelete = (e) => {
+    const data = { id: task.id, uid: task.user._id };
     e.preventDefault();
-    console.log(task.id);
-    deleteTask(task.id);
+    deleteTask(data);
   };
   return (
     <Grid

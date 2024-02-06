@@ -5,6 +5,7 @@ export interface UserLogin {
 }
 
 interface TaskDelete {
+  uid: string;
   id: string;
 }
 interface UserContextType {
