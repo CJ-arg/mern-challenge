@@ -11,6 +11,7 @@ function TaskSingle({ task }) {
     e.preventDefault();
     deleteTask(data);
   };
+
   return (
     <Grid
       item
